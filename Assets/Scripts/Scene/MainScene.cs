@@ -47,6 +47,9 @@ public class MainScene : BaseScene
         Green,
         Red,
         Yellow,
+        Gray,
+        Brown,
+        White,
         End
     }
 
