@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Title.uss?fileID=7433441132597879392&amp;guid=a1d58856eaf2640af9e36b150f190916&amp;type=3#Title" />
+    <ui:VisualElement name="VisualElement" style="width: 100%; height: 100%; background-color: rgb(0, 0, 0); flex-direction: column; align-items: flex-start; justify-content: flex-start;">
+        <ui:VisualElement style="width: 100%; height: 40%; background-color: rgba(0, 0, 0, 0); justify-content: center; align-items: center;">
+            <ui:Label text="제목" display-tooltip-when-elided="true" name="TitleName" style="font-size: 100px; justify-content: flex-start; border-top-width: 10px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 70px;" />
+        </ui:VisualElement>
+        <ui:VisualElement style="width: 100%; height: 50%; background-color: rgba(255, 255, 255, 0); justify-content: space-between; align-items: center; padding-left: 250px; padding-right: 250px; padding-top: 70px; padding-bottom: 70px;">
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="StartButton" class="Button--Title" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="OptionButton" class="Button--Title" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="CreditButton" class="Button--Title" />
+        </ui:VisualElement>
+        <ui:VisualElement style="width: 100%; height: 10%; background-color: rgba(0, 0, 0, 0); justify-content: space-between; align-items: center; flex-direction: row-reverse; padding-left: 100px; padding-right: 100px;">
+            <ui:Button text="Exit" display-tooltip-when-elided="true" name="ExitButton" style="position: relative; top: 0; left: 0; height: 80px; font-size: 50px; width: 120px; justify-content: flex-start;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
