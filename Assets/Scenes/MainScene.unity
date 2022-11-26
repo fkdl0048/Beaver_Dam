@@ -752,6 +752,7 @@ MonoBehaviour:
   m_eScene: 1
   failCnt: 0
   currentQuestIdx: 0
+  stageTimer: 0
   chosenMaterials:
   - {fileID: 5802345242999146435}
   - {fileID: 653602247}
@@ -774,11 +775,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5946036159497636516, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 50
+      value: 52.58
       objectReference: {fileID: 0}
     - target: {fileID: 5946036159497636516, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.47
+      value: -3.09
       objectReference: {fileID: 0}
     - target: {fileID: 5946036159497636516, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
       propertyPath: m_LocalPosition.z
