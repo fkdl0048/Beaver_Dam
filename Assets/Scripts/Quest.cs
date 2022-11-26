@@ -16,7 +16,7 @@ public struct stQuest
         questText = "";
         for (int i = 0; i < numMaterials; i++)
         {
-            stMaterial curMat = new stMaterial(0, 0);
+            stMaterial curMat = new stMaterial(-1, -1);
             questMaterials.Add(curMat);
             questText += StringList.floorStrings[i][Random.Range(0, StringList.floorStrings[i].Count)] + " ";
             questText += StringList.colorStrings[curMat.matColor][Random.Range(0, StringList.colorStrings[curMat.matColor].Count)] + " ";
@@ -41,8 +41,16 @@ public struct stMaterial
 
     public stMaterial(int _type, int _color)
     {
-        matType = Random.Range(0, StringList.typeColorTable.Count);
-        matColor = StringList.typeColorTable[matType][Random.Range(0, StringList.typeColorTable[matType].Count)];
+        if (_type == -1 && _color == -1)
+        {
+            matType = Random.Range(0, StringList.typeColorTable.Count);
+            matColor = StringList.typeColorTable[matType][Random.Range(0, StringList.typeColorTable[matType].Count)];
+        }
+        else
+        {
+            matType = _type;
+            matColor = _color;
+        }
     }
 
     public bool isEqual(stMaterial a)
