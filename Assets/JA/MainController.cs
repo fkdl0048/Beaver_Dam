@@ -35,6 +35,8 @@ public class MainController : MonoBehaviour
     private Button _leafRed;
     private Button _leafYellow;
 
+    private Button _resultButton;
+
     private int currentIdx, prevIdx;
 
     void Start()
@@ -58,7 +60,7 @@ public class MainController : MonoBehaviour
         _quesButton = root.Q<Button>("QuestText");
         _inGameOne = root.Q<VisualElement>("InGameOne");
         _inGameTwo = root.Q<VisualElement>("InGameTwo");
-        _quesButton.RegisterCallback<ClickEvent>(OnChange);
+        _quesButton.RegisterCallback<ClickEvent>(OnChangeOne);
 
         // Quest Button Init
         _branchButton = root.Q<Button>("BranchButton");
@@ -77,6 +79,9 @@ public class MainController : MonoBehaviour
         _leafGreen = root.Q<Button>("LeafGreen");
         _leafRed = root.Q<Button>("LeafRed");
         _leafYellow = root.Q<Button>("LeafYellow");
+
+        _resultButton = root.Q<Button>("ResultButton");
+        _resultButton.RegisterCallback<ClickEvent>(OnChangeTwo);
         
         // Quest Button Event Add
         _branchButton.RegisterCallback<ClickEvent>(OpenQuestContainerBracnch);
@@ -189,21 +194,21 @@ public class MainController : MonoBehaviour
 
     #region InGame
 
-    private void OnChange(ClickEvent evt)
+    private void OnChangeOne(ClickEvent evt)
     {
-        if (_inGameOne.style.display == DisplayStyle.Flex)
-        {
-            _inGameOne.style.display = DisplayStyle.None;
-            _inGameTwo.style.display = DisplayStyle.Flex;
-        }
-        else
-        {
-            _inGameOne.style.display = DisplayStyle.Flex;
-            _inGameTwo.style.display = DisplayStyle.None;
-        }
 
-        
-    } 
+        _inGameOne.style.display = DisplayStyle.None;
+        _inGameTwo.style.display = DisplayStyle.Flex;
+        BeaverGameManager.Instance.GetCurrScene<MainScene>().MoveToIngame2();
+
+    }
+
+    private void OnChangeTwo(ClickEvent evt)
+    {
+        _inGameOne.style.display = DisplayStyle.Flex;
+        _inGameTwo.style.display = DisplayStyle.None;
+        BeaverGameManager.Instance.GetCurrScene<MainScene>().SubmitDam();
+    }
 
     #endregion
 
