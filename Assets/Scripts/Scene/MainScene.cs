@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class MainScene : BaseScene
 {
+    StringList stringList;
+    private void Awake()
+    {
+        stringList = new StringList();
+    }
+
     public enum eSTAGE
     {
         Spring,

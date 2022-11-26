@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestGenerator
+public class StringList
 {
-    private static List<List<int>> typeColorTable;  //재료 - 색깔
-    private static List<List<string>> floorStrings; //층 - 요청 텍스트
-    private static List<List<string>> typeStrings;  //재료 종류 - 요청 텍스트
-    private static List<List<string>> colorStrings; //색깔 - 요청 텍스트
+    public static List<List<int>> typeColorTable;  //재료 - 색깔
+    public static List<List<string>> floorStrings; //층 - 요청 텍스트
+    public static List<List<string>> typeStrings;  //재료 종류 - 요청 텍스트
+    public static List<List<string>> colorStrings; //색깔 - 요청 텍스트
 
-    public QuestGenerator()
+    public StringList()
     {
         //재료 - 색깔 매칭
         typeColorTable = new List<List<int>>();
@@ -37,46 +37,5 @@ public class QuestGenerator
         typeStrings.Add(new List<string>() { "나뭇가지를 놔줘.", "나뭇가지를 쌓아줘.", "횃불으로 쓸 수 있는 재료를 두자.", "이파리가 달려 있는 것을 놓고 싶어.", "꽃이 달려있을 때도 있는 것을 쌓아줘." });
         typeStrings.Add(new List<string>() { "돌을 놔줘.", "가장 밀도가 큰 것을 놔줘.", "불에 타지 않는 것을 쌓고 싶어.", "맞으면 죽는 재료를 올려줘.", "화산 폭발할 때 생기는 것을 놔줘." });
         typeStrings.Add(new List<string>() { "이파리를 놔줘.", "가장 얇은 것을 놔줘.", "어느 계절엔 색이 변하는 것을 쌓아줘.", "쉽게 찢어지는 것을 놓고 싶어." });
-    }
-
-    //비버가 주문하는 내용(함수 GenerateQuest()의 반환 타입임)
-    public struct stQuest
-    {
-        public List<stMaterial> questMaterials; //요청중인 리스트
-        public string questText;    //요청할때 쓰이는 텍스트
-
-        public stQuest(int numMaterials)
-        {
-            questMaterials = new List<stMaterial>();
-            questText = "";
-            for (int i = 0; i < numMaterials; i++)
-            {
-                stMaterial curMat = new stMaterial(0, 0);
-                questMaterials.Add(curMat);
-                questText += floorStrings[i][Random.Range(0, floorStrings[i].Count)] + " ";
-                questText += colorStrings[curMat.matColor][Random.Range(0, colorStrings[curMat.matColor].Count)] + " ";
-                questText += typeStrings[curMat.matType][Random.Range(0, typeStrings[curMat.matType].Count)] + "\n";
-            }
-        }
-    }
-
-    //재료(재료 타입 & 색깔 통틀어서)
-    public struct stMaterial
-    {
-        public int matType;
-        public int matColor;
-
-        public stMaterial(int _type, int _color)
-        {
-            matType = Random.Range(0, typeColorTable.Count);
-            matColor = typeColorTable[matType][Random.Range(0, typeColorTable[matType].Count)];
-        }
-    }
-
-    //비버의 주문을 생성함. numMaterials는 주문에 들어갈 재료 개수.
-    public stQuest GenerateQuest(int numMaterials)
-    {
-        if (numMaterials > floorStrings.Count) Debug.LogError("Wrong numMaterials");
-        return new stQuest(numMaterials);
     }
 }

@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class QuestTester : MonoBehaviour
 {
-    QuestGenerator questGenerator;
     void Start()
     {
-        //1) 이거 하나 있어야 해요
-        questGenerator = new QuestGenerator();
+        //1) 이거 하나 있어야 해요. 근데 main scene에서 생성할거임
+        //stringList = new StringList();
     }
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            //2) 이 함수 쓰면 QuestGenerator.stQuest 를 반환합니다.
-            QuestGenerator.stQuest quest = questGenerator.GenerateQuest(3);
-
+            //2) 비버 요청 내용은 객체 생성하면 알아서 랜덤으로 만들어집니다.
+            stQuest quest = new stQuest(3);
 
             //3) sqQuest.questMaterial는 stMaterial 리스트입니다.
             //4) stMaterial.matColor이 재료 색깔, stMaterial.matType이 재료 타입(돌, 가지...)입니다.
