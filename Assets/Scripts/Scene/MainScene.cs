@@ -57,7 +57,6 @@ public class MainScene : BaseScene
     //퀘스트들을 만들고 첫번째 비버 입장
     void StartStage()
     {
-        Debug.Log(BeaverGameManager.Instance.GetCurrScene<MainScene>());
         currentStage++;
         if (currentStage == 5)
         {
@@ -82,7 +81,6 @@ public class MainScene : BaseScene
     //손님 비버 입장(인게임 1)
     public void BeaverEnter()
     {
-        Debug.Log("BeaverEnter");
         if (!isUserPlaying) StartStage();
         else
         {
@@ -102,7 +100,6 @@ public class MainScene : BaseScene
     //제작 장소로 이동(인게임 2) - **UI**
     public void MoveToIngame2()
     {
-        Debug.Log("MoveToIngame2");
         isQuestSuccess = true;
         Camera.main.transform.position = new Vector3(50, 0, -10);
     }
@@ -111,8 +108,6 @@ public class MainScene : BaseScene
     public void AddUserChosenMaterial(stMaterial material)
     {
         if (userWorkingFloor == 3) return;
-        Debug.Log(material.matColor.ToString());
-        Debug.Log(material.matType.ToString());
         isQuestSuccess &= questList[currentQuestIdx].CheckRightMaterial(material, userWorkingFloor);
         chosenMaterials[userWorkingFloor].InitMaterial(material, userWorkingFloor);
         userWorkingFloor++;
@@ -129,7 +124,6 @@ public class MainScene : BaseScene
     //완성품 제출.
     public void SubmitDam()
     {
-        Debug.Log("SubmitDam");
         if (userWorkingFloor != questList[currentQuestIdx].questMaterials.Count) isQuestSuccess = false;
         if (!isQuestSuccess) failCnt++;
         BeaverLeave();
@@ -138,16 +132,6 @@ public class MainScene : BaseScene
     //손님 비버 퇴장(다시 인게임 1로 돌아올 때)
     void BeaverLeave()
     {
-        Debug.Log("BeaverLeave");
-        if (isQuestSuccess)
-        {
-
-        }
-        else
-        {
-
-        }
-
         beaverAnim.clip = beaverDownClip;
         beaverAnim.Play();
 
@@ -158,7 +142,6 @@ public class MainScene : BaseScene
     //스테이지 종료
     public void EndStage()
     {
-        Debug.Log("BeaverLeave");
         isUserPlaying = false;
         //다음 스테이지 넘어가는 UI 띄우기
     }
