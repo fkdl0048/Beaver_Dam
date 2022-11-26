@@ -6,15 +6,12 @@ using UnityEngine.UIElements;
 public class MainController : MonoBehaviour
 {
     private UIDocument _uiDocument;
-    
-    
+
     // stage 
     private Button _quesButton;
     private VisualElement _inGameOne;
     private VisualElement _inGameTwo;
     
-    
-
     // Option
     private Button _optionButton;
     private Button _exitButton;
