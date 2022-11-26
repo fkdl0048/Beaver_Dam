@@ -241,6 +241,8 @@ public class MainController : MonoBehaviour
         _inGameOne.style.display = DisplayStyle.Flex;
         _inGameTwo.style.display = DisplayStyle.None;
         BeaverGameManager.Instance.GetCurrScene<MainScene>().SubmitDam();
+
+        _quesButton.text = "";
         _quesButton.text = BeaverGameManager.Instance.GetCurrScene<MainScene>().GetResponseText();
         
         // class 
