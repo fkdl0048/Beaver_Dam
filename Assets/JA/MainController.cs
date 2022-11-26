@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class MainController : MonoBehaviour
@@ -21,6 +22,7 @@ public class MainController : MonoBehaviour
     // Option
     private Button _optionButton;
     private Button _exitButton;
+    private Button _titleButon;
     private VisualElement _optionContainer;
 
     // Quest Button
@@ -64,10 +66,12 @@ public class MainController : MonoBehaviour
         _optionContainer = root.Q<VisualElement>("Container-Option");
         _optionButton = root.Q<Button>("OptionButton");
         _exitButton = root.Q<Button>("ExitButton");
+        _titleButon = root.Q<Button>("TitleButton");
         
         // Option Event Add
         _optionButton.RegisterCallback<ClickEvent>(OptionButtonClick);
         _exitButton.RegisterCallback<ClickEvent>(ExitButtonClick);
+        _titleButon.RegisterCallback<ClickEvent>(TitleButtonClick);
         
         // InGame
         _quesButton = root.Q<Button>("QuestText");
@@ -385,6 +389,11 @@ public class MainController : MonoBehaviour
     private void StopTrue()
     {
         _stop = true;
+    }
+
+    private void TitleButtonClick(ClickEvent evt)
+    {
+        SceneManager.LoadScene("Tilte");
     }
 
     private IEnumerator StageChangeLogic()
