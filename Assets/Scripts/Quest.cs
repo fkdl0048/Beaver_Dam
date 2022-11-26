@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -14,13 +15,27 @@ public struct stQuest
         if (numMaterials > StringList.floorStrings.Count) Debug.LogError("wrong numMaterials");
         questMaterials = new List<stMaterial>();
         questText = "";
+
         for (int i = 0; i < numMaterials; i++)
         {
             stMaterial curMat = new stMaterial(-1, -1);
             questMaterials.Add(curMat);
+        }
+
+        List<bool> used = new List<bool>();
+        for (int i = 0; i < numMaterials; i++) used.Add(false);
+        int tCnt = 0;
+        while (tCnt != numMaterials)
+        {
+            int i = Random.Range(0, numMaterials);
+            if (used[i]) continue;
+            used[i] = true;
+            tCnt++;
+            stMaterial curMat = questMaterials[i];
             questText += StringList.floorStrings[i][Random.Range(0, StringList.floorStrings[i].Count)] + " ";
             questText += StringList.colorStrings[curMat.matColor][Random.Range(0, StringList.colorStrings[curMat.matColor].Count)] + " ";
-            questText += StringList.typeStrings[curMat.matType][Random.Range(0, StringList.typeStrings[curMat.matType].Count)] + "\n";
+            questText += StringList.typeStrings[curMat.matType][Random.Range(0, StringList.typeStrings[curMat.matType].Count)];
+            if (tCnt != numMaterials) questText += "\n";
         }
     }
 
