@@ -46,6 +46,7 @@ public class MainController : MonoBehaviour
     private int currentIdx, prevIdx;
     private bool _check;
     private int _curstage;
+    private bool _stop;
 
     void Start()
     {
@@ -228,6 +229,9 @@ public class MainController : MonoBehaviour
 
     private void OnChangeOne(ClickEvent evt)
     {
+        if(!_stop)
+            return;
+
         if (_check)
         {
             _check = false;
@@ -235,12 +239,16 @@ public class MainController : MonoBehaviour
             return;
         }
 
+        QuestContainerReset();
+        
         _inGameOne.style.display = DisplayStyle.None;
         _inGameTwo.style.display = DisplayStyle.Flex;
         BeaverGameManager.Instance.GetCurrScene<MainScene>().MoveToIngame2();
 
         _inGameTwo.AddToClassList("InGameOut");
         _inGameOne.RemoveFromClassList("InGameOut");
+        
+        _quesButton.text = "";
     }
 
     private void OnChangeTwo(ClickEvent evt)
@@ -269,12 +277,15 @@ public class MainController : MonoBehaviour
     private void Update()
     {
         currentIdx = BeaverGameManager.Instance.GetCurrScene<MainScene>().currentQuestIdx;
-        if (currentIdx != prevIdx)
+        if (currentIdx != prevIdx && BeaverGameManager.Instance.GetCurrScene<MainScene>().isUserPlaying)
         {
+            _stop = false;
+            
             prevIdx = currentIdx;
             _quesButton.text = "";
             string m = BeaverGameManager.Instance.GetCurrScene<MainScene>().GetAskText();
             DOTween.To(() => _quesButton.text, x => _quesButton.text = x, m, 3f).SetEase(Ease.Linear);
+            Invoke("StopTrue", 3f);
         }
 
         if (BeaverGameManager.Instance.GetCurrScene<MainScene>().userWorkingFloor == 3)
@@ -295,15 +306,29 @@ public class MainController : MonoBehaviour
 
         if (BeaverGameManager.Instance.GetCurrScene<MainScene>().stageTimer <= 0)
         {
+            _check = true;
+            _inGameOne.style.display = DisplayStyle.Flex;
+            _inGameTwo.style.display = DisplayStyle.None;
+
             _quesButton.text = "";
             _quesButton.text = BeaverGameManager.Instance.GetCurrScene<MainScene>().GetResponseText();
+            Debug.Log(BeaverGameManager.Instance.GetCurrScene<MainScene>().GetResponseText());
+        
+            // class 
+            _inGameOne.AddToClassList("InGameOut");
+            _inGameTwo.RemoveFromClassList("InGameOut");
+            
+            BeaverGameManager.Instance.GetCurrScene<MainScene>().stageTimer = 3300;
+            
 
-            StageChange();
+            //StageChange();
         }
 
         if (BeaverGameManager.Instance.GetCurrScene<MainScene>().currentStage != _curstage)
         {
             _curstage = BeaverGameManager.Instance.GetCurrScene<MainScene>().currentStage;
+            if (_curstage == 5)
+                return;
             StageChange();
         }
     }
@@ -327,13 +352,19 @@ public class MainController : MonoBehaviour
         StartCoroutine(StageChangeLogic());
     }
 
+    private void StopTrue()
+    {
+        _stop = true;
+    }
+
     private IEnumerator StageChangeLogic()
     {
         _stageContainer.style.display = DisplayStyle.Flex;
-        _stageContainer.AddToClassList("InGameOut");
-        _stageLabel.text = _stageLabel.text + BeaverGameManager.Instance.GetCurrScene<MainScene>().currentStage;
-        yield return new WaitForSeconds(1f);
-        _stageContainer.RemoveFromClassList("InGameOut");
+        _stageContainer.AddToClassList("StageFadeOut");
+        string temp = "Stage " + BeaverGameManager.Instance.GetCurrScene<MainScene>().currentStage;
+        _stageLabel.text = temp;
+        yield return new WaitForSeconds(2f);
+        _stageContainer.RemoveFromClassList("StageFadeOut");
         _stageContainer.style.display = DisplayStyle.None;
     }
 }
