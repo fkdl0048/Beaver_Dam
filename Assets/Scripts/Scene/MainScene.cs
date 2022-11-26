@@ -8,27 +8,44 @@ public class MainScene : BaseScene
     StringList stringList = new StringList();
 
     List<stQuest> questList = new List<stQuest>(); //비버들이 요청할 내용들
+
+    int currentStage;       //현재 몇번째 스테이지인가
+    int failCnt;            //모든 스테이지 통틀어서 실패 횟수 카운트
+
     int currentQuestIdx;    //현재 스테이지에서 작업중인 퀘스트 인덱스
+    bool isUserPlaying;     //현재 스테이지가 종료되었는지 체크용
+    float stageTimer;       //현재 스테이지의 타이머(0되면 다음 스테이지로 넘어감)
+
     int userWorkingFloor;   //현재 퀘스트에서 작업중인 층(0부터)
-    bool isQuestSuccess;
-    int failCnt;
+    bool isQuestSuccess;    //현재 퀘스트가 성공인지 체크용
 
     public List<DamMaterial> chosenMaterials;  //유저가 택한 재료들
-
-    void StartGame()
+    
+    //게임 시작!
+    public void StartGame()
     {
         failCnt = 0;
+        currentStage = 0;
         StartStage();
     }
 
-    //스테이지 시작
+    //스테이지 시작  - **UI**
     //퀘스트들을 만들고 첫번째 비버 입장
     void StartStage()
     {
+        currentStage++;
+
         currentQuestIdx = -1;
+        isUserPlaying = true;
+        stageTimer = 210.0f - currentStage * 30.0f;
         for (int i = 0; i < 5; i++) questList.Add(new stQuest());
         FadeInOut();
         BeaverEnter();
+    }
+
+    void Update()
+    {
+        CheckTimer();
     }
 
     //손님 비버 입장(인게임 1)
@@ -36,21 +53,19 @@ public class MainScene : BaseScene
     {
         currentQuestIdx++;
         ResetMaterials();
+
+        Camera.main.transform.position = Vector2.zero;
         /*
-        1. 카메라 위치를 인게임 1용 오브젝트 있는 곳으로 바꿈.
         2. 비버 통통 등장하는 애니메이션
         3. UI에서 텍스트 뜸
         */
-
     }
 
-    //제작 장소로 이동(인게임 2)
+    //제작 장소로 이동(인게임 2) - **UI**
     void MoveToIngame2()
     {
         isQuestSuccess = true;
-        /*
-        1. 카메라 위치를 인게임 2용 오브젝트 있는 곳으로 바꿈. 
-        */
+        Camera.main.transform.position = new Vector2(20, 0);
     }
 
     //유저가 재료 완성했을 때(재료 추가할 때) 불림
@@ -98,7 +113,21 @@ public class MainScene : BaseScene
     //스테이지 종료
     void EndStage()
     {
+        isUserPlaying = false;
         //다음 스테이지 넘어가는 UI 띄우기
+    }
+
+    void CheckTimer()
+    {
+        if (isUserPlaying)
+        {
+            stageTimer -= Time.deltaTime;
+            if (stageTimer <= 0.0f)
+            {
+                failCnt += 5 - currentQuestIdx;
+                EndStage();
+            }
+        }
     }
 
     void FadeInOut()

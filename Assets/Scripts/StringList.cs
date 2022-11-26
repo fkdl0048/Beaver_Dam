@@ -9,6 +9,8 @@ public class StringList
     public static List<List<string>> typeStrings;  //재료 종류 - 요청 텍스트
     public static List<List<string>> colorStrings; //색깔 - 요청 텍스트
 
+    public static List<string> successStrings;
+    public static List<string> failStrings;
     public StringList()
     {
         //재료 - 색깔 매칭
@@ -37,5 +39,35 @@ public class StringList
         typeStrings.Add(new List<string>() { "나뭇가지를 놔줘.", "나뭇가지를 쌓아줘.", "횃불으로 쓸 수 있는 재료를 두자.", "이파리가 달려 있는 것을 놓고 싶어.", "꽃이 달려있을 때도 있는 것을 쌓아줘." });
         typeStrings.Add(new List<string>() { "돌을 놔줘.", "가장 밀도가 큰 것을 놔줘.", "불에 타지 않는 것을 쌓고 싶어.", "맞으면 죽는 재료를 올려줘.", "화산 폭발할 때 생기는 것을 놔줘." });
         typeStrings.Add(new List<string>() { "이파리를 놔줘.", "가장 얇은 것을 놔줘.", "어느 계절엔 색이 변하는 것을 쌓아줘.", "쉽게 찢어지는 것을 놓고 싶어." });
+
+        //성공 멘트
+        successStrings = new List<string>()
+        {
+            "완벽해요!",
+            "여기서 평생 살고 싶어요!",
+            "모던하면서 클래식한 멋진 집이네요~",
+            "제가 원했던 게 바로 이거에요!",
+            "얏호!",
+            "고마워요~!",
+            "포브스 선정 최고의 댐 1위! -★★★★★",
+            "행복한 댐 생활이 시작되겠네요!",
+            "너무 기뻐요..! 우리집 짱",
+            "좋아요! 신난다~",
+            "다음에 또 올게요!",
+            "덕분이에요! 예!",
+            "이야! 집이다!",
+            "집만 봐도 배가 불러요!"
+        };
+
+        //실패 멘트
+        failStrings = new List<string>()
+        {
+            "이딴걸 집이라구..",
+            "이딴게.. 내 집?",
+            "이런 데서 살고 싶진 않았어요..",
+            "으악!",
+            "이게 뭐에요..?",
+            "제 의뢰랑 다르잖아요!"
+        };
     }
 }
