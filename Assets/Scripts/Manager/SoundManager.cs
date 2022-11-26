@@ -32,6 +32,6 @@ public enum eSOUND
     Submit,
     Reset,
     ButtonClickETC,
-    Wrong,
+    Perfect,
     End
 }
