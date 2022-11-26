@@ -1,31 +1,31 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/JA/Main.uss?fileID=7433441132597879392&amp;guid=52b67c48efbda470da40cdfb89f5809d&amp;type=3#Main" />
-    <ui:VisualElement name="InGameOne" style="width: 100%; height: 100%; display: flex;">
+    <ui:VisualElement name="InGameOne" style="width: 100%; height: 100%; display: none;">
         <ui:VisualElement style="flex-grow: 1; padding-left: 100px; padding-right: 100px; padding-top: 100px; padding-bottom: 100px;">
             <ui:Button text="아아아" display-tooltip-when-elided="true" name="QuestText" style="background-color: rgba(255, 255, 255, 0); font-size: 40px;" />
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="InGameTwo" style="width: 100%; height: 100%; flex-direction: column; flex-wrap: wrap; display: none;">
+    <ui:VisualElement name="InGameTwo" style="width: 100%; height: 100%; flex-direction: column; flex-wrap: wrap; display: flex;">
         <ui:VisualElement name="ButtonLayerOne" style="width: 15%; height: 100%; justify-content: space-around; padding-top: 100px; padding-bottom: 100px; padding-right: 50px; padding-left: 50px; align-items: center;">
-            <ui:Button display-tooltip-when-elided="true" name="BranchButton" class="QuestButton" />
-            <ui:Button display-tooltip-when-elided="true" name="StoneButton" class="QuestButton" />
-            <ui:Button display-tooltip-when-elided="true" name="LeafButton" class="QuestButton" />
+            <ui:Button display-tooltip-when-elided="true" name="BranchButton" class="QuestButton" style="background-image: url(&apos;project://database/Assets/JA/UI/BrownBranch.png?fileID=21300000&amp;guid=ff608543c3f30463a9f39c8cda7df1a0&amp;type=3#BrownBranch&apos;);" />
+            <ui:Button display-tooltip-when-elided="true" name="StoneButton" class="QuestButton" style="background-image: url(&apos;project://database/Assets/JA/UI/GrayStone.png?fileID=21300000&amp;guid=074d0990831a64690ab60c06f8d9a617&amp;type=3#GrayStone&apos;);" />
+            <ui:Button display-tooltip-when-elided="true" name="LeafButton" class="QuestButton" style="background-image: url(&apos;project://database/Assets/JA/UI/GreenLeaf.png?fileID=21300000&amp;guid=e78a712b850004a5ca808b2c1898b1ee&amp;type=3#GreenLeaf&apos;);" />
         </ui:VisualElement>
-        <ui:VisualElement name="ButtonLayerTwo" style="height: 100%; width: 10%; padding-top: 100px; padding-bottom: 100px; justify-content: space-around; padding-left: 10px; padding-right: 10px;">
-            <ui:VisualElement name="BranchList" class="Button--List ListButton" style="height: auto; display: none;">
-                <ui:Button display-tooltip-when-elided="true" name="BranchGreen" class="SeletionButton" />
-                <ui:Button display-tooltip-when-elided="true" name="BranchGray" class="SeletionButton" />
-                <ui:Button display-tooltip-when-elided="true" name="BranchBrown" class="SeletionButton" />
+        <ui:VisualElement name="ButtonLayerTwo" style="height: 100%; width: 12%; padding-top: 100px; padding-bottom: 100px; justify-content: space-around; padding-left: 10px; padding-right: 10px; display: flex;">
+            <ui:VisualElement name="BranchList" class="Button--List ListButton" style="display: none;">
+                <ui:Button display-tooltip-when-elided="true" name="BranchGreen" class="SeletionButton" style="background-image: url(&apos;project://database/Assets/JA/UI/GreenBranch.PNG?fileID=21300000&amp;guid=58fc9b4acadf843efa353d52f506242c&amp;type=3#GreenBranch&apos;);" />
+                <ui:Button display-tooltip-when-elided="true" name="BranchGray" class="SeletionButton" style="background-image: url(&apos;project://database/Assets/JA/UI/GrayBranch.png?fileID=21300000&amp;guid=a19e1e4b6f82f44b086de093fecbd041&amp;type=3#GrayBranch&apos;);" />
+                <ui:Button display-tooltip-when-elided="true" name="BranchBrown" class="SeletionButton" style="background-image: url(&apos;project://database/Assets/JA/UI/BrownBranch.png?fileID=21300000&amp;guid=ff608543c3f30463a9f39c8cda7df1a0&amp;type=3#BrownBranch&apos;);" />
             </ui:VisualElement>
             <ui:VisualElement name="StoneList" class="ListButton" style="display: none;">
-                <ui:Button display-tooltip-when-elided="true" name="StoneGray" class="SeletionButton" />
-                <ui:Button display-tooltip-when-elided="true" name="StoneBrown" class="SeletionButton" />
-                <ui:Button display-tooltip-when-elided="true" name="StoneWhite" class="SeletionButton" />
+                <ui:Button display-tooltip-when-elided="true" name="StoneGray" class="SeletionButton" style="background-image: url(&apos;project://database/Assets/JA/UI/GrayStone.png?fileID=21300000&amp;guid=074d0990831a64690ab60c06f8d9a617&amp;type=3#GrayStone&apos;);" />
+                <ui:Button display-tooltip-when-elided="true" name="StoneBrown" class="SeletionButton" style="background-image: url(&apos;project://database/Assets/JA/UI/BrownStone.png?fileID=21300000&amp;guid=deaad5c2b5b794f659cd52ce935de07f&amp;type=3#BrownStone&apos;);" />
+                <ui:Button display-tooltip-when-elided="true" name="StoneWhite" class="SeletionButton" style="background-image: url(&apos;project://database/Assets/JA/UI/WhiteStone.PNG?fileID=21300000&amp;guid=d92c44b9c31f14e0ea6405da8e81f054&amp;type=3#WhiteStone&apos;);" />
             </ui:VisualElement>
             <ui:VisualElement name="LeafList" class="Button--List ListButton" style="display: none;">
-                <ui:Button display-tooltip-when-elided="true" name="LeafGreen" class="SeletionButton" />
-                <ui:Button display-tooltip-when-elided="true" name="LeafRed" class="SeletionButton" />
-                <ui:Button display-tooltip-when-elided="true" name="LeafYellow" class="SeletionButton" />
+                <ui:Button display-tooltip-when-elided="true" name="LeafGreen" class="SeletionButton" style="background-image: url(&apos;project://database/Assets/JA/UI/GreenLeaf.png?fileID=21300000&amp;guid=e78a712b850004a5ca808b2c1898b1ee&amp;type=3#GreenLeaf&apos;);" />
+                <ui:Button display-tooltip-when-elided="true" name="LeafRed" class="SeletionButton" style="background-image: url(&apos;project://database/Assets/JA/UI/RedLeaf.png?fileID=21300000&amp;guid=af153ea5e1f56436a91d3dc9701a7544&amp;type=3#RedLeaf&apos;);" />
+                <ui:Button display-tooltip-when-elided="true" name="LeafYellow" class="SeletionButton" style="background-image: url(&apos;project://database/Assets/JA/UI/YellowLeaf.png?fileID=21300000&amp;guid=1a249a7b3fc594fe8aceb684d315fb12&amp;type=3#YellowLeaf&apos;);" />
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement style="justify-content: flex-end; width: 75%; height: 100%; flex-direction: column;">
