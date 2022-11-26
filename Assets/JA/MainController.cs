@@ -13,6 +13,7 @@ public class MainController : MonoBehaviour
     private Button _quesButton;
     private VisualElement _inGameOne;
     private VisualElement _inGameTwo;
+    private Label _stageLabel;
     
     // Option
     private Button _optionButton;
@@ -36,17 +37,22 @@ public class MainController : MonoBehaviour
     private Button _leafRed;
     private Button _leafYellow;
 
+    // Quest Etc Button
     private Button _resultButton;
     private Button _resetButton;
 
+    private VisualElement _stageContainer;
+
     private int currentIdx, prevIdx;
     private bool _check;
+    private int _curstage;
 
     void Start()
     {
         // UIDoucment Init
         _uiDocument = GetComponent<UIDocument>();
         prevIdx = -1;
+        _curstage = -1;
 
         var root = _uiDocument.rootVisualElement;
 
@@ -103,8 +109,10 @@ public class MainController : MonoBehaviour
         _leafRed.RegisterCallback<ClickEvent>(OnLeafRed);
         _leafYellow.RegisterCallback<ClickEvent>(OnLeafYellow);
         
-        
         _inGameOne.AddToClassList("InGameOut");
+
+        _stageContainer = root.Q<VisualElement>("InGameStage");
+        _stageLabel = root.Q<Label>("StageText");
     }
 
     #region Option
@@ -284,6 +292,20 @@ public class MainController : MonoBehaviour
             _inGameTwo.style.display = DisplayStyle.None;
             _optionContainer.style.display = DisplayStyle.None;
         }
+
+        if (BeaverGameManager.Instance.GetCurrScene<MainScene>().stageTimer <= 0)
+        {
+            _quesButton.text = "";
+            _quesButton.text = BeaverGameManager.Instance.GetCurrScene<MainScene>().GetResponseText();
+
+            StageChange();
+        }
+
+        if (BeaverGameManager.Instance.GetCurrScene<MainScene>().currentStage != _curstage)
+        {
+            _curstage = BeaverGameManager.Instance.GetCurrScene<MainScene>().currentStage;
+            StageChange();
+        }
     }
 
     private void DisableAllButton()
@@ -300,4 +322,18 @@ public class MainController : MonoBehaviour
         _leafButton.visible = true;
     }
 
+    private void StageChange()
+    {
+        StartCoroutine(StageChangeLogic());
+    }
+
+    private IEnumerator StageChangeLogic()
+    {
+        _stageContainer.style.display = DisplayStyle.Flex;
+        _stageContainer.AddToClassList("InGameOut");
+        _stageLabel.text = _stageLabel.text + BeaverGameManager.Instance.GetCurrScene<MainScene>().currentStage;
+        yield return new WaitForSeconds(1f);
+        _stageContainer.RemoveFromClassList("InGameOut");
+        _stageContainer.style.display = DisplayStyle.None;
+    }
 }
