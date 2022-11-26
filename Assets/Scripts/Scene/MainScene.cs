@@ -119,6 +119,7 @@ public class MainScene : BaseScene
     public void SubmitDam()
     {
         Debug.Log("SubmitDam");
+        if (userWorkingFloor != questList[currentQuestIdx].questMaterials.Count) isQuestSuccess = false;
         if (!isQuestSuccess) failCnt++;
         BeaverLeave();
     }
