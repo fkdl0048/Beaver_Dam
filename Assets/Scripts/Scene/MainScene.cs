@@ -92,7 +92,7 @@ public class MainScene : BaseScene
     }
 
     //제작 장소로 이동(인게임 2) - **UI**
-    void MoveToIngame2()
+    public void MoveToIngame2()
     {
         isQuestSuccess = true;
         Camera.main.transform.position = new Vector3(50, 0, -10);
