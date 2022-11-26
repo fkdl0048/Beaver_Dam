@@ -35,6 +35,22 @@ public class MainScene : BaseScene
         StartStage();
     }
 
+    public string GetAskText()
+    {
+        return questList[currentQuestIdx].questText;
+    }
+
+    public string GetResponseText()
+    {
+        if (isQuestSuccess) return StringList.successStrings[Random.Range(0, StringList.successStrings.Count)];
+        else return StringList.failStrings[Random.Range(0, StringList.failStrings.Count)];
+    }
+
+    private void Start()
+    {
+        StartGame();
+    }
+
     //스테이지 시작  - **UI**
     //퀘스트들을 만들고 첫번째 비버 입장
     void StartStage()
@@ -51,10 +67,6 @@ public class MainScene : BaseScene
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            StartGame();
-        }
         CheckTimer();
     }
 
