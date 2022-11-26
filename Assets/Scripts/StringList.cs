@@ -4,70 +4,70 @@ using UnityEngine;
 
 public class StringList
 {
-    public static List<List<int>> typeColorTable;  //Àç·á - »ö±ò
-    public static List<List<string>> floorStrings; //Ãþ - ¿äÃ» ÅØ½ºÆ®
-    public static List<List<string>> typeStrings;  //Àç·á Á¾·ù - ¿äÃ» ÅØ½ºÆ®
-    public static List<List<string>> colorStrings; //»ö±ò - ¿äÃ» ÅØ½ºÆ®
+    public static List<List<int>> typeColorTable;  //ìž¬ë£Œ - ìƒ‰ê¹”
+    public static List<List<string>> floorStrings; //ì¸µ - ìš”ì²­ í…ìŠ¤íŠ¸
+    public static List<List<string>> typeStrings;  //ìž¬ë£Œ ì¢…ë¥˜ - ìš”ì²­ í…ìŠ¤íŠ¸
+    public static List<List<string>> colorStrings; //ìƒ‰ê¹” - ìš”ì²­ í…ìŠ¤íŠ¸
 
     public static List<string> successStrings;
     public static List<string> failStrings;
     public StringList()
     {
-        //Àç·á - »ö±ò ¸ÅÄª
+        //ìž¬ë£Œ - ìƒ‰ê¹” ë§¤ì¹­
         typeColorTable = new List<List<int>>();
         typeColorTable.Add(new List<int>() { 0, 3, 4 });
         typeColorTable.Add(new List<int>() { 3, 4, 5 });
         typeColorTable.Add(new List<int>() { 0, 1, 2 });
 
-        //Ãþ - ¿äÃ» ÅØ½ºÆ® ¸ÅÄª
+        //ì¸µ - ìš”ì²­ í…ìŠ¤íŠ¸ ë§¤ì¹­
         floorStrings = new List<List<string>>();
-        floorStrings.Add(new List<string>() { "1Ãþ¿¡", "Ã¹ ¹øÂ°·Î", "¹Ù´Ú¿¡", "ÇÏ´Ã°ú °¡Àå ¸Õ °÷¿¡", "8ÀÇ 0Á¦°ö Ä­¿¡", "½ÃÀÛ ÇÒ ¶§´Â", "¸Ç Ã³À½¿£" });
-        floorStrings.Add(new List<string>() { "2Ãþ¿¡", "µÎ ¹øÂ°·Î", "Ã¹Â° Àç·á À§¿¡", "1+3+5-7¹øÂ°¿¡", "¹Ù´Ú°ú °¡Àå °¡±õÁö´Â ¾ÊÀº °÷¿¡", "Ã¹ ¹øÂ°ÀÇ ´ÙÀ½ ¼ø¼­¿¡", "¹Ù´ÚÀÌ ¾Æ´Ñ °÷¿¡" });
-        floorStrings.Add(new List<string>() { "3Ãþ¿¡", "¼¼ ¹øÂ°·Î", "¸Ç ¸¶Áö¸·¿¡", "¸Ç À§¿¡", "9¡¿¨÷Ä­¿¡", "ÇÏ´Ã°ú °¡Àå °¡±î¿î °÷¿¡", "¹Ù´Ú°ú °¡Àå ¸Õ °÷¿¡" });
+        floorStrings.Add(new List<string>() { "1ì¸µì—", "ì²« ë²ˆì§¸ë¡œ", "ë°”ë‹¥ì—", "í•˜ëŠ˜ê³¼ ê°€ìž¥ ë¨¼ ê³³ì—", "8ì˜ 0ì œê³± ì¹¸ì—", "ì‹œìž‘ í•  ë•ŒëŠ”", "ë§¨ ì²˜ìŒì—”" });
+        floorStrings.Add(new List<string>() { "2ì¸µì—", "ë‘ ë²ˆì§¸ë¡œ", "ì²«ì§¸ ìž¬ë£Œ ìœ„ì—", "1+3+5-7ë²ˆì§¸ì—", "ë°”ë‹¥ê³¼ ê°€ìž¥ ê°€ê¹ì§€ëŠ” ì•Šì€ ê³³ì—", "ì²« ë²ˆì§¸ì˜ ë‹¤ìŒ ìˆœì„œì—", "ë°”ë‹¥ì´ ì•„ë‹Œ ê³³ì—" });
+        floorStrings.Add(new List<string>() { "3ì¸µì—", "ì„¸ ë²ˆì§¸ë¡œ", "ë§¨ ë§ˆì§€ë§‰ì—", "ë§¨ ìœ„ì—", "9Ã—â…“ì¹¸ì—", "í•˜ëŠ˜ê³¼ ê°€ìž¥ ê°€ê¹Œìš´ ê³³ì—", "ë°”ë‹¥ê³¼ ê°€ìž¥ ë¨¼ ê³³ì—" });
 
-        //»ö±ò - ¿äÃ» ÅØ½ºÆ® ¸ÅÄª
+        //ìƒ‰ê¹” - ìš”ì²­ í…ìŠ¤íŠ¸ ë§¤ì¹­
         colorStrings = new List<List<string>>();
-        colorStrings.Add(new List<string>() { "ÃÊ·Ï»ö", "green", "»çÀÌ´Ù ¸À", "¶óÀÓ ²®Áú »ö", "»ø·¯¸® »ö", "³×ÀÙ Å¬·Î¹ö°¡ ¶°¿À¸£´Â", "¿ÀÀÌ Çâ±â°¡ ³ª´Â" });
-        colorStrings.Add(new List<string>() { "»¡°£»ö", "red", "µþ±â ¸ÀÀÌ ³¯ °Í °°Àº", "ÄÉÂý °°Àº", "Ã¼¸® Çâ±â°¡ ³¯ °Í °°Àº", "¿ÍÀÎÀÌ ¸¶½Ã°í ½Í¾îÁö´Â", "ÇÇ°¡ ¶°¿À¸£´Â", "³ëÀ»°ú °°Àº" });
-        colorStrings.Add(new List<string>() { "³ë¶õ»ö", "yellow", "º´¾Æ¸® °°Àº", "¸Ó½ºÅ¸µå »öÀÇ", "3¿ø»ö Áß º½À» ´ëÇ¥ÇÏ´Â »öÀÇ", "À¯Ä¡¿ø»ýÀÌ ¶°¿À¸£´Â", "ÀÌ¹«ÁøÀÌ ÁÁ¾ÆÇÏ´Â", "ÃæÄ¡¸¦ Ä¡·áÇÏ¸é º¼ ¼ö ÀÖ´Â »öÀÇ", "·¹¸ó" });
-        colorStrings.Add(new List<string>() { "È¸»ö", "gray", "¸Ô±¸¸§ °°Àº", "°ËÁ¤°ú Èò»öÀ» ¼¯Àº", "±Ý¹æÀÌ¶óµµ ºñ°¡ ¿Ã °Í °°Àº", "°¡Àå ¹àÁö´Â ¾ÊÀº ¹«Ã¤»ö" });
-        colorStrings.Add(new List<string>() { "°¥»ö", "brown", "½Ã³ª¸óÀ» ´àÀº", "Ä¿ÇÇ ¸ÀÀÌ ³¯ µíÇÑ", "ÈëÅÁ¹°°ú ºñ½ÁÇÑ", "Åë³ª¹«°¡ ¶°¿À¸£´Â " });
-        colorStrings.Add(new List<string>() { "Èò»ö", "white", "¸ðµç ºûÀ» ÇÕÄ£", "ºÏ±Ø°õÀ» ´àÀº", "°Ü¿ï¿¡ ¸¹ÀÌ º¸ÀÌ´Â ³¯µµ ÀÖ´Â »öÀÇ", "¹ö´× ºñ¹ö ÈÄµåÆ¼¸¦ ´àÀº" });
+        colorStrings.Add(new List<string>() { "ì´ˆë¡ìƒ‰", "green", "ì‚¬ì´ë‹¤ ë§›", "ë¼ìž„ ê»ì§ˆ ìƒ‰", "ìƒëŸ¬ë¦¬ ìƒ‰", "ë„¤ìžŽ í´ë¡œë²„ê°€ ë– ì˜¤ë¥´ëŠ”", "ì˜¤ì´ í–¥ê¸°ê°€ ë‚˜ëŠ”" });
+        colorStrings.Add(new List<string>() { "ë¹¨ê°„ìƒ‰", "red", "ë”¸ê¸° ë§›ì´ ë‚  ê²ƒ ê°™ì€", "ì¼€ì°¹ ê°™ì€", "ì²´ë¦¬ í–¥ê¸°ê°€ ë‚  ê²ƒ ê°™ì€", "ì™€ì¸ì´ ë§ˆì‹œê³  ì‹¶ì–´ì§€ëŠ”", "í”¼ê°€ ë– ì˜¤ë¥´ëŠ”", "ë…¸ì„ê³¼ ê°™ì€" });
+        colorStrings.Add(new List<string>() { "ë…¸ëž€ìƒ‰", "yellow", "ë³‘ì•„ë¦¬ ê°™ì€", "ë¨¸ìŠ¤íƒ€ë“œ ìƒ‰ì˜", "3ì›ìƒ‰ ì¤‘ ë´„ì„ ëŒ€í‘œí•˜ëŠ” ìƒ‰ì˜", "ìœ ì¹˜ì›ìƒì´ ë– ì˜¤ë¥´ëŠ”", "ì´ë¬´ì§„ì´ ì¢‹ì•„í•˜ëŠ”", "ì¶©ì¹˜ë¥¼ ì¹˜ë£Œí•˜ë©´ ë³¼ ìˆ˜ ìžˆëŠ” ìƒ‰ì˜", "ë ˆëª¬" });
+        colorStrings.Add(new List<string>() { "íšŒìƒ‰", "gray", "ë¨¹êµ¬ë¦„ ê°™ì€", "ê²€ì •ê³¼ í°ìƒ‰ì„ ì„žì€", "ê¸ˆë°©ì´ë¼ë„ ë¹„ê°€ ì˜¬ ê²ƒ ê°™ì€", "ê°€ìž¥ ë°ì§€ëŠ” ì•Šì€ ë¬´ì±„ìƒ‰" });
+        colorStrings.Add(new List<string>() { "ê°ˆìƒ‰", "brown", "ì‹œë‚˜ëª¬ì„ ë‹®ì€", "ì»¤í”¼ ë§›ì´ ë‚  ë“¯í•œ", "í™íƒ•ë¬¼ê³¼ ë¹„ìŠ·í•œ", "í†µë‚˜ë¬´ê°€ ë– ì˜¤ë¥´ëŠ” " });
+        colorStrings.Add(new List<string>() { "í°ìƒ‰", "white", "ëª¨ë“  ë¹›ì„ í•©ì¹œ", "ë¶ê·¹ê³°ì„ ë‹®ì€", "ê²¨ìš¸ì— ë§Žì´ ë³´ì´ëŠ” ë‚ ë„ ìžˆëŠ” ìƒ‰ì˜", "ë²„ë‹ ë¹„ë²„ í›„ë“œí‹°ë¥¼ ë‹®ì€" });
 
-        //Àç·á Å¸ÀÔ - ¿äÃ» ÅØ½ºÆ® ¸ÅÄª
+        //ìž¬ë£Œ íƒ€ìž… - ìš”ì²­ í…ìŠ¤íŠ¸ ë§¤ì¹­
         typeStrings = new List<List<string>>();
-        typeStrings.Add(new List<string>() { "³ª¹µ°¡Áö¸¦ ³öÁà.", "³ª¹µ°¡Áö¸¦ ½×¾ÆÁà.", "È¶ºÒÀ¸·Î ¾µ ¼ö ÀÖ´Â Àç·á¸¦ µÎÀÚ.", "ÀÌÆÄ¸®°¡ ´Þ·Á ÀÖ´Â °ÍÀ» ³õ°í ½Í¾î.", "²ÉÀÌ ´Þ·ÁÀÖÀ» ¶§µµ ÀÖ´Â °ÍÀ» ½×¾ÆÁà." });
-        typeStrings.Add(new List<string>() { "µ¹À» ³öÁà.", "°¡Àå ¹Ðµµ°¡ Å« °ÍÀ» ³öÁà.", "ºÒ¿¡ Å¸Áö ¾Ê´Â °ÍÀ» ½×°í ½Í¾î.", "¸ÂÀ¸¸é Á×´Â Àç·á¸¦ ¿Ã·ÁÁà.", "È­»ê Æø¹ßÇÒ ¶§ »ý±â´Â °ÍÀ» ³öÁà." });
-        typeStrings.Add(new List<string>() { "ÀÌÆÄ¸®¸¦ ³öÁà.", "°¡Àå ¾ãÀº °ÍÀ» ³öÁà.", "¾î´À °èÀý¿£ »öÀÌ º¯ÇÏ´Â °ÍÀ» ½×¾ÆÁà.", "½±°Ô Âõ¾îÁö´Â °ÍÀ» ³õ°í ½Í¾î." });
+        typeStrings.Add(new List<string>() { "ë‚˜ë­‡ê°€ì§€ë¥¼ ë†”ì¤˜.", "ë‚˜ë­‡ê°€ì§€ë¥¼ ìŒ“ì•„ì¤˜.", "íšƒë¶ˆìœ¼ë¡œ ì“¸ ìˆ˜ ìžˆëŠ” ìž¬ë£Œë¥¼ ë‘ìž.", "ì´íŒŒë¦¬ê°€ ë‹¬ë ¤ ìžˆëŠ” ê²ƒì„ ë†“ê³  ì‹¶ì–´.", "ê½ƒì´ ë‹¬ë ¤ìžˆì„ ë•Œë„ ìžˆëŠ” ê²ƒì„ ìŒ“ì•„ì¤˜." });
+        typeStrings.Add(new List<string>() { "ëŒì„ ë†”ì¤˜.", "ê°€ìž¥ ë°€ë„ê°€ í° ê²ƒì„ ë†”ì¤˜.", "ë¶ˆì— íƒ€ì§€ ì•ŠëŠ” ê²ƒì„ ìŒ“ê³  ì‹¶ì–´.", "ë§žìœ¼ë©´ ì£½ëŠ” ìž¬ë£Œë¥¼ ì˜¬ë ¤ì¤˜.", "í™”ì‚° í­ë°œí•  ë•Œ ìƒê¸°ëŠ” ê²ƒì„ ë†”ì¤˜." });
+        typeStrings.Add(new List<string>() { "ì´íŒŒë¦¬ë¥¼ ë†”ì¤˜.", "ê°€ìž¥ ì–‡ì€ ê²ƒì„ ë†”ì¤˜.", "ì–´ëŠ ê³„ì ˆì—” ìƒ‰ì´ ë³€í•˜ëŠ” ê²ƒì„ ìŒ“ì•„ì¤˜.", "ì‰½ê²Œ ì°¢ì–´ì§€ëŠ” ê²ƒì„ ë†“ê³  ì‹¶ì–´." });
 
-        //¼º°ø ¸àÆ®
+        //ì„±ê³µ ë©˜íŠ¸
         successStrings = new List<string>()
         {
-            "¿Ïº®ÇØ¿ä!",
-            "¿©±â¼­ Æò»ý »ì°í ½Í¾î¿ä!",
-            "¸ð´øÇÏ¸é¼­ Å¬·¡½ÄÇÑ ¸ÚÁø ÁýÀÌ³×¿ä~",
-            "Á¦°¡ ¿øÇß´ø °Ô ¹Ù·Î ÀÌ°Å¿¡¿ä!",
-            "¾æÈ£!",
-            "°í¸¶¿ö¿ä~!",
-            "Æ÷ºê½º ¼±Á¤ ÃÖ°íÀÇ ´ï 1À§! -¡Ú¡Ú¡Ú¡Ú¡Ú",
-            "Çàº¹ÇÑ ´ï »ýÈ°ÀÌ ½ÃÀÛµÇ°Ú³×¿ä!",
-            "³Ê¹« ±â»µ¿ä..! ¿ì¸®Áý Â¯",
-            "ÁÁ¾Æ¿ä! ½Å³­´Ù~",
-            "´ÙÀ½¿¡ ¶Ç ¿Ã°Ô¿ä!",
-            "´öºÐÀÌ¿¡¿ä! ¿¹!",
-            "ÀÌ¾ß! ÁýÀÌ´Ù!",
-            "Áý¸¸ ºÁµµ ¹è°¡ ºÒ·¯¿ä!"
+            "ì™„ë²½í•´ìš”!",
+            "ì—¬ê¸°ì„œ í‰ìƒ ì‚´ê³  ì‹¶ì–´ìš”!",
+            "ëª¨ë˜í•˜ë©´ì„œ í´ëž˜ì‹í•œ ë©‹ì§„ ì§‘ì´ë„¤ìš”~",
+            "ì œê°€ ì›í–ˆë˜ ê²Œ ë°”ë¡œ ì´ê±°ì—ìš”!",
+            "ì–í˜¸!",
+            "ê³ ë§ˆì›Œìš”~!",
+            "í¬ë¸ŒìŠ¤ ì„ ì • ìµœê³ ì˜ ëŒ 1ìœ„! -â˜…â˜…â˜…â˜…â˜…",
+            "í–‰ë³µí•œ ëŒ ìƒí™œì´ ì‹œìž‘ë˜ê² ë„¤ìš”!",
+            "ë„ˆë¬´ ê¸°ë»ìš”..! ìš°ë¦¬ì§‘ ì§±",
+            "ì¢‹ì•„ìš”! ì‹ ë‚œë‹¤~",
+            "ë‹¤ìŒì— ë˜ ì˜¬ê²Œìš”!",
+            "ë•ë¶„ì´ì—ìš”! ì˜ˆ!",
+            "ì´ì•¼! ì§‘ì´ë‹¤!",
+            "ì§‘ë§Œ ë´ë„ ë°°ê°€ ë¶ˆëŸ¬ìš”!"
         };
 
-        //½ÇÆÐ ¸àÆ®
+        //ì‹¤íŒ¨ ë©˜íŠ¸
         failStrings = new List<string>()
         {
-            "ÀÌµý°É ÁýÀÌ¶ó±¸..",
-            "ÀÌµý°Ô.. ³» Áý?",
-            "ÀÌ·± µ¥¼­ »ì°í ½ÍÁø ¾Ê¾Ò¾î¿ä..",
-            "À¸¾Ç!",
-            "ÀÌ°Ô ¹¹¿¡¿ä..?",
-            "Á¦ ÀÇ·Ú¶û ´Ù¸£ÀÝ¾Æ¿ä!"
+            "ì´ë”´ê±¸ ì§‘ì´ë¼êµ¬..",
+            "ì´ë”´ê²Œ.. ë‚´ ì§‘?",
+            "ì´ëŸ° ë°ì„œ ì‚´ê³  ì‹¶ì§„ ì•Šì•˜ì–´ìš”..",
+            "ìœ¼ì•…!",
+            "ì´ê²Œ ë­ì—ìš”..?",
+            "ì œ ì˜ë¢°ëž‘ ë‹¤ë¥´ìž–ì•„ìš”!"
         };
     }
 }
