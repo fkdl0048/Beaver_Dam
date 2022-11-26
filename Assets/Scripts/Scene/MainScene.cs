@@ -153,7 +153,7 @@ public class MainScene : BaseScene
         beaverAnim.Play();
 
         Camera.main.transform.position = new Vector3(0, 0, -10);
-        if (currentQuestIdx == 4 || !isUserPlaying) EndStage();
+        if (currentQuestIdx == 4) EndStage();
     }
 
     //스테이지 종료
@@ -170,8 +170,9 @@ public class MainScene : BaseScene
             stageTimer -= Time.deltaTime;
             if (stageTimer <= 0.0f)
             {
+                isQuestSuccess = false;
                 failCnt += 5 - currentQuestIdx;
-                EndStage();
+                currentQuestIdx = 4;
                 BeaverLeave();
             }
             timerInsideBar.sizeDelta = new Vector2(50.0f, 700.0f * stageTimer / (210.0f - currentStage * 30.0f));
