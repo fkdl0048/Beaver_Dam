@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -103,6 +104,7 @@ public class MainController : MonoBehaviour
         _leafYellow.RegisterCallback<ClickEvent>(OnLeafYellow);
         
         
+        _inGameOne.AddToClassList("InGameOut");
     }
 
     #region Option
@@ -229,6 +231,8 @@ public class MainController : MonoBehaviour
         _inGameTwo.style.display = DisplayStyle.Flex;
         BeaverGameManager.Instance.GetCurrScene<MainScene>().MoveToIngame2();
 
+        _inGameTwo.AddToClassList("InGameOut");
+        _inGameOne.RemoveFromClassList("InGameOut");
     }
 
     private void OnChangeTwo(ClickEvent evt)
@@ -238,6 +242,10 @@ public class MainController : MonoBehaviour
         _inGameTwo.style.display = DisplayStyle.None;
         BeaverGameManager.Instance.GetCurrScene<MainScene>().SubmitDam();
         _quesButton.text = BeaverGameManager.Instance.GetCurrScene<MainScene>().GetResponseText();
+        
+        // class 
+        _inGameOne.AddToClassList("InGameOut");
+        _inGameTwo.RemoveFromClassList("InGameOut");
     }
 
     private void OnResetButton(ClickEvent evt)
@@ -254,7 +262,9 @@ public class MainController : MonoBehaviour
         if (currentIdx != prevIdx)
         {
             prevIdx = currentIdx;
-            _quesButton.text = BeaverGameManager.Instance.GetCurrScene<MainScene>().GetAskText();
+            _quesButton.text = "";
+            string m = BeaverGameManager.Instance.GetCurrScene<MainScene>().GetAskText();
+            DOTween.To(() => _quesButton.text, x => _quesButton.text = x, m, 3f).SetEase(Ease.Linear);
         }
 
         if (BeaverGameManager.Instance.GetCurrScene<MainScene>().userWorkingFloor == 3)
@@ -264,6 +274,13 @@ public class MainController : MonoBehaviour
         else
         {
             AllButtonOn();
+        }
+
+        if (BeaverGameManager.Instance.GetCurrScene<MainScene>().isEnd)
+        {
+            _inGameOne.style.display = DisplayStyle.None;
+            _inGameTwo.style.display = DisplayStyle.None;
+            _optionContainer.style.display = DisplayStyle.None;
         }
     }
 

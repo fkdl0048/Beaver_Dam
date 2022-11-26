@@ -26,6 +26,8 @@ public class MainScene : BaseScene
     public SpriteRenderer beaverSprite; //비버
     public AnimationClip beaverUpClip, beaverDownClip;  //비버 애니메이션
 
+    public bool isEnd;
+
     [SerializeField] private SpriteAtlas beaverSpriteAtlas;
 
     //게임 시작!
@@ -62,6 +64,7 @@ public class MainScene : BaseScene
         if (currentStage == 5)
         {
             ShowEnding();
+            isEnd = true;
         }
         else
         {
