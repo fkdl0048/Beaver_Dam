@@ -57,6 +57,7 @@ public class MainScene : BaseScene
     //퀘스트들을 만들고 첫번째 비버 입장
     void StartStage()
     {
+        Debug.Log(BeaverGameManager.Instance.GetCurrScene<MainScene>());
         currentStage++;
 
         currentQuestIdx = -1;
