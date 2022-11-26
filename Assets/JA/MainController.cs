@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,10 +35,13 @@ public class MainController : MonoBehaviour
     private Button _leafRed;
     private Button _leafYellow;
 
+    private int currentIdx, prevIdx;
+
     void Start()
     {
         // UIDoucment Init
         _uiDocument = GetComponent<UIDocument>();
+        prevIdx = -1;
 
         var root = _uiDocument.rootVisualElement;
 
@@ -88,6 +92,8 @@ public class MainController : MonoBehaviour
         _leafGreen.RegisterCallback<ClickEvent>(OnLeafGreen);
         _leafRed.RegisterCallback<ClickEvent>(OnLeafRed);
         _leafYellow.RegisterCallback<ClickEvent>(OnLeafYellow);
+        
+        
     }
 
     #region Option
@@ -200,4 +206,26 @@ public class MainController : MonoBehaviour
     } 
 
     #endregion
+
+
+    private void Update()
+    {
+        //currentIdx = BeaverGameManager.Instance.GetCurrScene<MainScene>().currentQuestIdx;
+        
+        
+        currentIdx = BeaverGameManager.Instance.GetCurrScene<MainScene>().currentQuestIdx;
+        if (currentIdx != prevIdx)
+        {
+            prevIdx = currentIdx;
+            _quesButton.text = BeaverGameManager.Instance.GetCurrScene<MainScene>().GetAskText();
+        }
+        // Debug.Log(BeaverGameManager.Instance.GetCurrScene<MainScene>());
+        
+    }
+
+    private void Test()
+    {
+        
+
+    }
 }
