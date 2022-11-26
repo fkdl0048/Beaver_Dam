@@ -16,7 +16,7 @@ public class MainScene : BaseScene
     public int failCnt;     //모든 스테이지 통틀어서 실패 횟수 카운트
 
     public int currentQuestIdx;    //현재 스테이지에서 작업중인 퀘스트 인덱스
-    bool isUserPlaying;     //현재 스테이지가 종료되었는지 체크용
+    public bool isUserPlaying;     //현재 스테이지가 종료되었는지 체크용
     public float stageTimer;       //현재 스테이지의 타이머(0되면 다음 스테이지로 넘어감)
 
     public int userWorkingFloor;   //현재 퀘스트에서 작업중인 층(0부터)
