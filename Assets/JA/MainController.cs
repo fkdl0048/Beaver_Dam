@@ -36,8 +36,10 @@ public class MainController : MonoBehaviour
     private Button _leafYellow;
 
     private Button _resultButton;
+    private Button _resetButton;
 
     private int currentIdx, prevIdx;
+    private bool _check;
 
     void Start()
     {
@@ -82,6 +84,8 @@ public class MainController : MonoBehaviour
 
         _resultButton = root.Q<Button>("ResultButton");
         _resultButton.RegisterCallback<ClickEvent>(OnChangeTwo);
+        _resetButton = root.Q<Button>("ResetButton");
+        _resetButton.RegisterCallback<ClickEvent>(OnResetButton);
         
         // Quest Button Event Add
         _branchButton.RegisterCallback<ClickEvent>(OpenQuestContainerBracnch);
@@ -141,46 +145,64 @@ public class MainController : MonoBehaviour
     private void OnbranchGreen(ClickEvent evt)
     {
         _branchContainer.style.display = DisplayStyle.None;
+        
+        BeaverGameManager.Instance.GetCurrScene<MainScene>().AddUserChosenMaterial(new stMaterial((int)eMETARIAL.Branch, (int)eCOLOR.Green));
     }
     
     private void OnbranchGray(ClickEvent evt)
     {
         _branchContainer.style.display = DisplayStyle.None;
+        
+        BeaverGameManager.Instance.GetCurrScene<MainScene>().AddUserChosenMaterial(new stMaterial((int)eMETARIAL.Branch, (int)eCOLOR.Gray));
     }
     
     private void OnbranchBrown(ClickEvent evt)
     {
         _branchContainer.style.display = DisplayStyle.None;
+        
+        BeaverGameManager.Instance.GetCurrScene<MainScene>().AddUserChosenMaterial(new stMaterial((int)eMETARIAL.Branch, (int)eCOLOR.Brown));
     }
     
     private void OnStoneGray(ClickEvent evt)
     {
         _stoneContainer.style.display = DisplayStyle.None;
+        
+        BeaverGameManager.Instance.GetCurrScene<MainScene>().AddUserChosenMaterial(new stMaterial((int)eMETARIAL.Stone, (int)eCOLOR.Gray));
     }
 
     private void OnStoneBrown(ClickEvent evt)
     {
         _stoneContainer.style.display = DisplayStyle.None;
+        
+        BeaverGameManager.Instance.GetCurrScene<MainScene>().AddUserChosenMaterial(new stMaterial((int)eMETARIAL.Branch, (int)eCOLOR.Brown));
     }
     
     private void OnStoneWhite(ClickEvent evt)
     {
         _stoneContainer.style.display = DisplayStyle.None;
+        
+        BeaverGameManager.Instance.GetCurrScene<MainScene>().AddUserChosenMaterial(new stMaterial((int)eMETARIAL.Branch, (int)eCOLOR.White));
     }
 
     private void OnLeafGreen(ClickEvent evt)
     {
         _leafContainer.style.display = DisplayStyle.None;
+        
+        BeaverGameManager.Instance.GetCurrScene<MainScene>().AddUserChosenMaterial(new stMaterial((int)eMETARIAL.Leaf, (int)eCOLOR.Green));
     }
     
     private void OnLeafRed(ClickEvent evt)
     {
         _leafContainer.style.display = DisplayStyle.None;
+        
+        BeaverGameManager.Instance.GetCurrScene<MainScene>().AddUserChosenMaterial(new stMaterial((int)eMETARIAL.Leaf, (int)eCOLOR.Red));
     }
     
     private void OnLeafYellow(ClickEvent evt)
     {
         _leafContainer.style.display = DisplayStyle.None;
+        
+        BeaverGameManager.Instance.GetCurrScene<MainScene>().AddUserChosenMaterial(new stMaterial((int)eMETARIAL.Leaf, (int)eCOLOR.Yellow));
     }
 
     private void QuestContainerReset()
@@ -196,6 +218,12 @@ public class MainController : MonoBehaviour
 
     private void OnChangeOne(ClickEvent evt)
     {
+        if (_check)
+        {
+            _check = false;
+            BeaverGameManager.Instance.GetCurrScene<MainScene>().BeaverEnter();
+            return;
+        }
 
         _inGameOne.style.display = DisplayStyle.None;
         _inGameTwo.style.display = DisplayStyle.Flex;
@@ -205,9 +233,16 @@ public class MainController : MonoBehaviour
 
     private void OnChangeTwo(ClickEvent evt)
     {
+        _check = true;
         _inGameOne.style.display = DisplayStyle.Flex;
         _inGameTwo.style.display = DisplayStyle.None;
         BeaverGameManager.Instance.GetCurrScene<MainScene>().SubmitDam();
+        _quesButton.text = BeaverGameManager.Instance.GetCurrScene<MainScene>().GetResponseText();
+    }
+
+    private void OnResetButton(ClickEvent evt)
+    {
+        BeaverGameManager.Instance.GetCurrScene<MainScene>().ResetMaterials();
     }
 
     #endregion
@@ -215,22 +250,12 @@ public class MainController : MonoBehaviour
 
     private void Update()
     {
-        //currentIdx = BeaverGameManager.Instance.GetCurrScene<MainScene>().currentQuestIdx;
-        
-        
         currentIdx = BeaverGameManager.Instance.GetCurrScene<MainScene>().currentQuestIdx;
         if (currentIdx != prevIdx)
         {
             prevIdx = currentIdx;
             _quesButton.text = BeaverGameManager.Instance.GetCurrScene<MainScene>().GetAskText();
         }
-        // Debug.Log(BeaverGameManager.Instance.GetCurrScene<MainScene>());
-        
     }
-
-    private void Test()
-    {
-        
-
-    }
+    
 }
