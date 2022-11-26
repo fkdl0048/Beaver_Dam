@@ -70,6 +70,4 @@ public class MainScene : BaseScene
             this.nColor = Random.Range(0, (int)eCOLOR.End);
         }
     }
-
-
 }

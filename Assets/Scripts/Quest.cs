@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//ºñ¹ö°¡ ÁÖ¹®ÇÏ´Â ³»¿ë
+//ë¹„ë²„ê°€ ì£¼ë¬¸í•˜ëŠ” ë‚´ìš©
 public struct stQuest
 {
-    public List<stMaterial> questMaterials; //ºñ¹ö°¡ ¿äÃ»(ÁÖ¹®)ÁßÀÎ ¸®½ºÆ®(ÀÎµ¦½º 0¹øÀÌ 1Ãş, 1¹øÀÌ 2Ãş...ÀÓ)
-    public string questText;    //ºñ¹ö°¡ ¿äÃ»ÇÒ¶§ ¾²´Â ¸àÆ®
+    public List<stMaterial> questMaterials; //ë¹„ë²„ê°€ ìš”ì²­(ì£¼ë¬¸)ì¤‘ì¸ ë¦¬ìŠ¤íŠ¸(ì¸ë±ìŠ¤ 0ë²ˆì´ 1ì¸µ, 1ë²ˆì´ 2ì¸µ...ì„)
+    public string questText;    //ë¹„ë²„ê°€ ìš”ì²­í• ë•Œ ì“°ëŠ” ë©˜íŠ¸
 
-    public stQuest(int numMaterials)    //±×³É »ı¼ºÇÏ¼¼¿ä
+    public stQuest(int numMaterials)    //ê·¸ëƒ¥ ìƒì„±í•˜ì„¸ìš”
     {
         if (numMaterials > StringList.floorStrings.Count) Debug.LogError("wrong numMaterials");
         questMaterials = new List<stMaterial>();
@@ -25,7 +25,7 @@ public struct stQuest
     }
 }
 
-//Àç·á(Àç·á Å¸ÀÔ & »ö±ò ÅëÆ²¾î¼­)
+//ì¬ë£Œ(ì¬ë£Œ íƒ€ì… & ìƒ‰ê¹” í†µí‹€ì–´ì„œ)
 public struct stMaterial
 {
     public int matType;
