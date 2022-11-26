@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
+using UnityEngine.UI;
 
 public class MainScene : BaseScene
 {
@@ -30,12 +31,25 @@ public class MainScene : BaseScene
 
     [SerializeField] private SpriteAtlas beaverSpriteAtlas;
 
+    public GameObject timerObject;
+    public RectTransform timerInsideBar;
+
     //게임 시작!
     public void StartGame()
     {
         failCnt = 0;
         currentStage = 0;
         StartStage();
+    }
+
+    public void ShowTimer()
+    {
+        timerObject.SetActive(true);
+    }
+
+    public void HideTimer()
+    {
+        timerObject.SetActive(false);
     }
 
     public string GetAskText()
@@ -160,6 +174,7 @@ public class MainScene : BaseScene
                 EndStage();
                 BeaverLeave();
             }
+            timerInsideBar.sizeDelta = new Vector2(50.0f, 700.0f * stageTimer / (210.0f - currentStage * 30.0f));
         }
     }
 
