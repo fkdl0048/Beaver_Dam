@@ -174,14 +174,14 @@ public class MainController : MonoBehaviour
     {
         _stoneContainer.style.display = DisplayStyle.None;
         
-        BeaverGameManager.Instance.GetCurrScene<MainScene>().AddUserChosenMaterial(new stMaterial((int)eMETARIAL.Branch, (int)eCOLOR.Brown));
+        BeaverGameManager.Instance.GetCurrScene<MainScene>().AddUserChosenMaterial(new stMaterial((int)eMETARIAL.Stone, (int)eCOLOR.Brown));
     }
     
     private void OnStoneWhite(ClickEvent evt)
     {
         _stoneContainer.style.display = DisplayStyle.None;
         
-        BeaverGameManager.Instance.GetCurrScene<MainScene>().AddUserChosenMaterial(new stMaterial((int)eMETARIAL.Branch, (int)eCOLOR.White));
+        BeaverGameManager.Instance.GetCurrScene<MainScene>().AddUserChosenMaterial(new stMaterial((int)eMETARIAL.Stone, (int)eCOLOR.White));
     }
 
     private void OnLeafGreen(ClickEvent evt)
