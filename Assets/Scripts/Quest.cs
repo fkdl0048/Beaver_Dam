@@ -28,6 +28,7 @@ public struct stQuest
     {
         if (floor >= questMaterials.Count) return false;
         if (!material.isEqual(questMaterials[floor])) return false;
+        Debug.Log("TRUE");
         return true;
     }
 }

@@ -136,6 +136,7 @@ public class MainScene : BaseScene
         beaverAnim.Play();
         currentQuestIdx++;
 
+        Camera.main.transform.position = new Vector3(0, 0, -10);
         if (currentQuestIdx == 5) EndStage();
     }
 
