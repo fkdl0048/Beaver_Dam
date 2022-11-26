@@ -6,28 +6,29 @@ using UnityEngine.U2D;
 
 public class MainScene : BaseScene
 {
+    //public static MainScene instnace;
     StringList stringList = new StringList();
 
-    List<stQuest> questList = new List<stQuest>(); //ºñ¹öµéÀÌ ¿äÃ»ÇÒ ³»¿ëµé
+    List<stQuest> questList = new List<stQuest>(); //ë¹„ë²„ë“¤ì´ ìš”ì²­í•  ë‚´ìš©ë“¤
 
-    int currentStage;       //ÇöÀç ¸î¹øÂ° ½ºÅ×ÀÌÁöÀÎ°¡
-    public int failCnt;     //¸ğµç ½ºÅ×ÀÌÁö ÅëÆ²¾î¼­ ½ÇÆĞ È½¼ö Ä«¿îÆ®
+    int currentStage;       //í˜„ì¬ ëª‡ë²ˆì§¸ ìŠ¤í…Œì´ì§€ì¸ê°€
+    public int failCnt;     //ëª¨ë“  ìŠ¤í…Œì´ì§€ í†µí‹€ì–´ì„œ ì‹¤íŒ¨ íšŸìˆ˜ ì¹´ìš´íŠ¸
 
-    public int currentQuestIdx;    //ÇöÀç ½ºÅ×ÀÌÁö¿¡¼­ ÀÛ¾÷ÁßÀÎ Äù½ºÆ® ÀÎµ¦½º
-    bool isUserPlaying;     //ÇöÀç ½ºÅ×ÀÌÁö°¡ Á¾·áµÇ¾ú´ÂÁö Ã¼Å©¿ë
-    float stageTimer;       //ÇöÀç ½ºÅ×ÀÌÁöÀÇ Å¸ÀÌ¸Ó(0µÇ¸é ´ÙÀ½ ½ºÅ×ÀÌÁö·Î ³Ñ¾î°¨)
+    public int currentQuestIdx;    //í˜„ì¬ ìŠ¤í…Œì´ì§€ì—ì„œ ì‘ì—…ì¤‘ì¸ í€˜ìŠ¤íŠ¸ ì¸ë±ìŠ¤
+    bool isUserPlaying;     //í˜„ì¬ ìŠ¤í…Œì´ì§€ê°€ ì¢…ë£Œë˜ì—ˆëŠ”ì§€ ì²´í¬ìš©
+    float stageTimer;       //í˜„ì¬ ìŠ¤í…Œì´ì§€ì˜ íƒ€ì´ë¨¸(0ë˜ë©´ ë‹¤ìŒ ìŠ¤í…Œì´ì§€ë¡œ ë„˜ì–´ê°)
 
-    int userWorkingFloor;   //ÇöÀç Äù½ºÆ®¿¡¼­ ÀÛ¾÷ÁßÀÎ Ãş(0ºÎÅÍ)
-    bool isQuestSuccess;    //ÇöÀç Äù½ºÆ®°¡ ¼º°øÀÎÁö Ã¼Å©¿ë
+    int userWorkingFloor;   //í˜„ì¬ í€˜ìŠ¤íŠ¸ì—ì„œ ì‘ì—…ì¤‘ì¸ ì¸µ(0ë¶€í„°)
+    bool isQuestSuccess;    //í˜„ì¬ í€˜ìŠ¤íŠ¸ê°€ ì„±ê³µì¸ì§€ ì²´í¬ìš©
 
-    public List<DamMaterial> chosenMaterials;  //À¯Àú°¡ ÅÃÇÑ Àç·áµé
-    public Animation beaverAnim;   //ºñ¹ö
-    public SpriteRenderer beaverSprite; //ºñ¹ö
-    public AnimationClip beaverUpClip, beaverDownClip;  //ºñ¹ö ¾Ö´Ï¸ŞÀÌ¼Ç
+    public List<DamMaterial> chosenMaterials;  //ìœ ì €ê°€ íƒí•œ ì¬ë£Œë“¤
+    public Animation beaverAnim;   //ë¹„ë²„
+    public SpriteRenderer beaverSprite; //ë¹„ë²„
+    public AnimationClip beaverUpClip, beaverDownClip;  //ë¹„ë²„ ì• ë‹ˆë©”ì´ì…˜
 
     [SerializeField] private SpriteAtlas beaverSpriteAtlas;
 
-    //°ÔÀÓ ½ÃÀÛ!
+    //ê²Œì„ ì‹œì‘!
     public void StartGame()
     {
         failCnt = 0;
@@ -46,15 +47,17 @@ public class MainScene : BaseScene
         else return StringList.failStrings[Random.Range(0, StringList.failStrings.Count)];
     }
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         StartGame();
     }
 
-    //½ºÅ×ÀÌÁö ½ÃÀÛ  - **UI**
-    //Äù½ºÆ®µéÀ» ¸¸µé°í Ã¹¹øÂ° ºñ¹ö ÀÔÀå
+    //ìŠ¤í…Œì´ì§€ ì‹œì‘  - **UI**
+    //í€˜ìŠ¤íŠ¸ë“¤ì„ ë§Œë“¤ê³  ì²«ë²ˆì§¸ ë¹„ë²„ ì…ì¥
     void StartStage()
     {
+        Debug.Log(BeaverGameManager.Instance.GetCurrScene<MainScene>());
         currentStage++;
 
         currentQuestIdx = -1;
@@ -63,7 +66,6 @@ public class MainScene : BaseScene
         for (int i = 0; i < 5; i++)
         {
             questList.Add(new stQuest(3));
-            Debug.Log(questList[i].questText);
         }
         FadeInOut();
         BeaverEnter();
@@ -74,7 +76,7 @@ public class MainScene : BaseScene
         CheckTimer();
     }
 
-    //¼Õ´Ô ºñ¹ö ÀÔÀå(ÀÎ°ÔÀÓ 1)
+    //ì†ë‹˜ ë¹„ë²„ ì…ì¥(ì¸ê²Œì„ 1)
     void BeaverEnter()
     {
         currentQuestIdx++;
@@ -85,19 +87,18 @@ public class MainScene : BaseScene
         beaverAnim.clip = beaverUpClip;
         beaverAnim.Play();
         /*
-        3. UI¿¡¼­ ÅØ½ºÆ® ¶ä
+        3. UIì—ì„œ í…ìŠ¤íŠ¸ ëœ¸
         */
-        Debug.Log(GetAskText());
     }
 
-    //Á¦ÀÛ Àå¼Ò·Î ÀÌµ¿(ÀÎ°ÔÀÓ 2) - **UI**
+    //ì œì‘ ì¥ì†Œë¡œ ì´ë™(ì¸ê²Œì„ 2) - **UI**
     void MoveToIngame2()
     {
         isQuestSuccess = true;
         Camera.main.transform.position = new Vector3(50, 0, -10);
     }
 
-    //À¯Àú°¡ Àç·á ¿Ï¼ºÇßÀ» ¶§(Àç·á Ãß°¡ÇÒ ¶§) ºÒ¸²
+    //ìœ ì €ê°€ ì¬ë£Œ ì™„ì„±í–ˆì„ ë•Œ(ì¬ë£Œ ì¶”ê°€í•  ë•Œ) ë¶ˆë¦¼
     void AddUserChosenMaterial(stMaterial material)
     {
         isQuestSuccess &= questList[currentQuestIdx].CheckRightMaterial(material, userWorkingFloor);
@@ -105,21 +106,21 @@ public class MainScene : BaseScene
         userWorkingFloor++;
     }
 
-    //Àç·á ¸ğµÎ ÃÊ±âÈ­(À¯Àú°¡ Á÷Á¢ Á¦°ÅÇÒ ¶§, ´ÙÀ½ ÁÖ¹® ¹ŞÀ»·Á°í ÀÚµ¿À¸·Î ³Ñ¾î°¥ ¶§ ¾²ÀÓ)
+    //ì¬ë£Œ ëª¨ë‘ ì´ˆê¸°í™”(ìœ ì €ê°€ ì§ì ‘ ì œê±°í•  ë•Œ, ë‹¤ìŒ ì£¼ë¬¸ ë°›ì„ë ¤ê³  ìë™ìœ¼ë¡œ ë„˜ì–´ê°ˆ ë•Œ ì“°ì„)
     void ResetMaterials()
     {
         for (int i = 0; i < chosenMaterials.Count; i++) chosenMaterials[i].RemoveFromScene();
         userWorkingFloor = 0;
     }
 
-    //¿Ï¼ºÇ° Á¦Ãâ.
+    //ì™„ì„±í’ˆ ì œì¶œ.
     void SubmitDam()
     {
         if (!isQuestSuccess) failCnt++;
         BeaverLeave();
     }
 
-    //¼Õ´Ô ºñ¹ö ÅğÀå(´Ù½Ã ÀÎ°ÔÀÓ 1·Î µ¹¾Æ¿Ã ¶§)
+    //ì†ë‹˜ ë¹„ë²„ í‡´ì¥(ë‹¤ì‹œ ì¸ê²Œì„ 1ë¡œ ëŒì•„ì˜¬ ë•Œ)
     void BeaverLeave()
     {
         if (isQuestSuccess)
@@ -138,11 +139,11 @@ public class MainScene : BaseScene
         if (currentQuestIdx == 5) EndStage();
     }
 
-    //½ºÅ×ÀÌÁö Á¾·á
+    //ìŠ¤í…Œì´ì§€ ì¢…ë£Œ
     void EndStage()
     {
         isUserPlaying = false;
-        //´ÙÀ½ ½ºÅ×ÀÌÁö ³Ñ¾î°¡´Â UI ¶ç¿ì±â
+        //ë‹¤ìŒ ìŠ¤í…Œì´ì§€ ë„˜ì–´ê°€ëŠ” UI ë„ìš°ê¸°
     }
 
     void CheckTimer()
