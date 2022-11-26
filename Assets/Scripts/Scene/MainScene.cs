@@ -18,7 +18,7 @@ public class MainScene : BaseScene
     bool isUserPlaying;     //현재 스테이지가 종료되었는지 체크용
     public float stageTimer;       //현재 스테이지의 타이머(0되면 다음 스테이지로 넘어감)
 
-    int userWorkingFloor;   //현재 퀘스트에서 작업중인 층(0부터)
+    public int userWorkingFloor;   //현재 퀘스트에서 작업중인 층(0부터)
     bool isQuestSuccess;    //현재 퀘스트가 성공인지 체크용
 
     public List<DamMaterial> chosenMaterials;  //유저가 택한 재료들

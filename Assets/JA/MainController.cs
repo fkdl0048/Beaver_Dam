@@ -256,6 +256,29 @@ public class MainController : MonoBehaviour
             prevIdx = currentIdx;
             _quesButton.text = BeaverGameManager.Instance.GetCurrScene<MainScene>().GetAskText();
         }
+
+        if (BeaverGameManager.Instance.GetCurrScene<MainScene>().userWorkingFloor == 3)
+        {
+            DisableAllButton();
+        }
+        else
+        {
+            AllButtonOn();
+        }
     }
-    
+
+    private void DisableAllButton()
+    {
+        _branchButton.visible = false;
+        _stoneButton.visible = false;
+        _leafButton.visible = false;
+    }
+
+    private void AllButtonOn()
+    {
+        _branchButton.visible = true;
+        _stoneButton.visible = true;
+        _leafButton.visible = true;
+    }
+
 }
