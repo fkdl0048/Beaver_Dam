@@ -113,6 +113,7 @@ public class MainScene : BaseScene
     {
         for (int i = 0; i < chosenMaterials.Count; i++) chosenMaterials[i].RemoveFromScene();
         userWorkingFloor = 0;
+        isQuestSuccess = true;
     }
 
     //완성품 제출.
