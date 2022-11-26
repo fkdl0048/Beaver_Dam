@@ -2,6 +2,7 @@ using System.CodeDom.Compiler;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class MainScene : BaseScene
 {
@@ -20,7 +21,12 @@ public class MainScene : BaseScene
     bool isQuestSuccess;    //현재 퀘스트가 성공인지 체크용
 
     public List<DamMaterial> chosenMaterials;  //유저가 택한 재료들
-    
+    public Animation beaverAnim;   //비버
+    public SpriteRenderer beaverSprite; //비버
+    public AnimationClip beaverUpClip, beaverDownClip;  //비버 애니메이션
+
+    [SerializeField] private SpriteAtlas beaverSpriteAtlas;
+
     //게임 시작!
     public void StartGame()
     {
@@ -45,6 +51,10 @@ public class MainScene : BaseScene
 
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            StartGame();
+        }
         CheckTimer();
     }
 
@@ -54,9 +64,11 @@ public class MainScene : BaseScene
         currentQuestIdx++;
         ResetMaterials();
 
-        Camera.main.transform.position = Vector2.zero;
+        Camera.main.transform.position = new Vector3(0, 0, -10);
+        beaverSprite.sprite = beaverSpriteAtlas.GetSprite("beaver_" + Random.Range(0, 10).ToString());
+        beaverAnim.clip = beaverUpClip;
+        beaverAnim.Play();
         /*
-        2. 비버 통통 등장하는 애니메이션
         3. UI에서 텍스트 뜸
         */
     }
@@ -65,7 +77,7 @@ public class MainScene : BaseScene
     void MoveToIngame2()
     {
         isQuestSuccess = true;
-        Camera.main.transform.position = new Vector2(20, 0);
+        Camera.main.transform.position = new Vector3(50, 0, -10);
     }
 
     //유저가 재료 완성했을 때(재료 추가할 때) 불림
@@ -101,10 +113,9 @@ public class MainScene : BaseScene
         {
 
         }
-        /*
-        1. 카메라 위치를 인게임 1용 오브젝트 있는 곳으로 바꿈.
-        2. 비버 통통 떠나는 애니메이션
-        */
+
+        beaverAnim.clip = beaverDownClip;
+        beaverAnim.Play();
         currentQuestIdx++;
 
         if (currentQuestIdx == 5) EndStage();

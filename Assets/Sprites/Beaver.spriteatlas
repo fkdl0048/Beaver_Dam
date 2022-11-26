@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Beaver
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 3a1cc8b7420104c489c6b005f98bc733, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: f2d2eaf14668c694a93b475ccbfef40e, type: 3}
+  - {fileID: 21300000, guid: 8e6ab464f627dba44ba7be6f5b71a290, type: 3}
+  - {fileID: 21300000, guid: 620e6815192719347977719266ccb919, type: 3}
+  - {fileID: 21300000, guid: 815bd3b5dc072ae4cb6c7eb7f5b1bace, type: 3}
+  - {fileID: 21300000, guid: f3532057dcaa3ac44801ba67b6755385, type: 3}
+  - {fileID: 21300000, guid: bae7291ad053b8e449b352465b8921f4, type: 3}
+  - {fileID: 21300000, guid: 643afb2ac7b19a844b051debdf2b68df, type: 3}
+  - {fileID: 21300000, guid: cc03620c99d0662458f0d0e41ffed767, type: 3}
+  - {fileID: 21300000, guid: f7f2fc1c78e1b4d4e95445d215d6cc62, type: 3}
+  - {fileID: 21300000, guid: c949f1df56dbe354cbd4d61148c4c40f, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - beaver_1
+  - beaver_9
+  - beaver_3
+  - beaver_6
+  - beaver_2
+  - beaver_5
+  - beaver_4
+  - beaver_8
+  - beaver_0
+  - beaver_7
+  m_RenderDataMap: {}
+  m_Tag: Beaver
+  m_IsVariant: 0

@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Material
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: a4b567d252c1361439fd387e2e71c655, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 7339a91274273b24086804f46aea05f1, type: 3}
+  - {fileID: 21300000, guid: e9a3cb427946dcf4e96a2edf9874b50c, type: 3}
+  - {fileID: 21300000, guid: 848213b4bb59b3142863ada4934ccc8a, type: 3}
+  - {fileID: 21300000, guid: 91a3f2c4f3c7b6c4195af2f01cb8ce03, type: 3}
+  - {fileID: 21300000, guid: 39c6e705ce2b64448ac69e52f1dcb84c, type: 3}
+  - {fileID: 21300000, guid: 57f8b947239215244a3c9bbe8cad8c89, type: 3}
+  - {fileID: 21300000, guid: 6cbd593a129814a4ba19d05c5927364a, type: 3}
+  - {fileID: 21300000, guid: 3233088cecb45c54aa8fb91838caf0b0, type: 3}
+  - {fileID: 21300000, guid: b945360d14a7eae4797fc4f31e395212, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - leaf_green
+  - leaf_yellow
+  - branch_brown
+  - stone_gray
+  - branch_green
+  - stone_brown
+  - branch_gray
+  - stone_white
+  - leaf_red
+  m_RenderDataMap: {}
+  m_Tag: Material
+  m_IsVariant: 0

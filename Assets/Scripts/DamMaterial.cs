@@ -26,6 +26,7 @@ public class DamMaterial : MonoBehaviour
         material = _mat;
         spriteRenderer.sprite = m_SpriteAtlas.GetSprite(typeName[material.matType] + colorName[material.matColor]);
         //애니메이션 시작 위치 조정
+        transform.position = new Vector2(50, -0.5f + _floor * 1.0f);
         anim.Play();
     }
 
