@@ -80,16 +80,20 @@ public class MainScene : BaseScene
     public void BeaverEnter()
     {
         Debug.Log("BeaverEnter");
-        currentQuestIdx++;
-        ResetMaterials();
+        if (!isUserPlaying) StartStage();
+        else
+        {
+            currentQuestIdx++;
+            ResetMaterials();
 
-        Camera.main.transform.position = new Vector3(0, 0, -10);
-        beaverSprite.sprite = beaverSpriteAtlas.GetSprite("beaver_" + Random.Range(0, 10).ToString());
-        beaverAnim.clip = beaverUpClip;
-        beaverAnim.Play();
-        /*
-        3. UI에서 텍스트 뜸
-        */
+            Camera.main.transform.position = new Vector3(0, 0, -10);
+            beaverSprite.sprite = beaverSpriteAtlas.GetSprite("beaver_" + Random.Range(0, 10).ToString());
+            beaverAnim.clip = beaverUpClip;
+            beaverAnim.Play();
+            /*
+            3. UI에서 텍스트 뜸
+            */
+        }
     }
 
     //제작 장소로 이동(인게임 2) - **UI**
