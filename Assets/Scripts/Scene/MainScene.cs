@@ -99,7 +99,7 @@ public class MainScene : BaseScene
     }
 
     //유저가 재료 완성했을 때(재료 추가할 때) 불림
-    void AddUserChosenMaterial(stMaterial material)
+    public void AddUserChosenMaterial(stMaterial material)
     {
         isQuestSuccess &= questList[currentQuestIdx].CheckRightMaterial(material, userWorkingFloor);
         chosenMaterials[userWorkingFloor].InitMaterial(material, userWorkingFloor);
@@ -107,14 +107,14 @@ public class MainScene : BaseScene
     }
 
     //재료 모두 초기화(유저가 직접 제거할 때, 다음 주문 받을려고 자동으로 넘어갈 때 쓰임)
-    void ResetMaterials()
+    public void ResetMaterials()
     {
         for (int i = 0; i < chosenMaterials.Count; i++) chosenMaterials[i].RemoveFromScene();
         userWorkingFloor = 0;
     }
 
     //완성품 제출.
-    void SubmitDam()
+    public void SubmitDam()
     {
         if (!isQuestSuccess) failCnt++;
         BeaverLeave();
@@ -140,7 +140,7 @@ public class MainScene : BaseScene
     }
 
     //스테이지 종료
-    void EndStage()
+    public void EndStage()
     {
         isUserPlaying = false;
         //다음 스테이지 넘어가는 UI 띄우기
