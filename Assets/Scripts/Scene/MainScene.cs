@@ -60,7 +60,11 @@ public class MainScene : BaseScene
         currentQuestIdx = -1;
         isUserPlaying = true;
         stageTimer = 210.0f - currentStage * 30.0f;
-        for (int i = 0; i < 5; i++) questList.Add(new stQuest());
+        for (int i = 0; i < 5; i++)
+        {
+            questList.Add(new stQuest(3));
+            Debug.Log(questList[i].questText);
+        }
         FadeInOut();
         BeaverEnter();
     }
@@ -83,6 +87,7 @@ public class MainScene : BaseScene
         /*
         3. UI에서 텍스트 뜸
         */
+        Debug.Log(GetAskText());
     }
 
     //제작 장소로 이동(인게임 2) - **UI**
