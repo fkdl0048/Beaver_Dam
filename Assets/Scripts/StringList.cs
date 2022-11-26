@@ -23,7 +23,7 @@ public class StringList
         floorStrings = new List<List<string>>();
         floorStrings.Add(new List<string>() { "1층에", "첫 번째로", "바닥에", "하늘과 가장 먼 곳에", "8의 0제곱 칸에", "시작 할 때는", "맨 처음엔" });
         floorStrings.Add(new List<string>() { "2층에", "두 번째로", "첫째 재료 위에", "1+3+5-7번째에", "바닥과 가장 가깝지는 않은 곳에", "첫 번째의 다음 순서에", "바닥이 아닌 곳에" });
-        floorStrings.Add(new List<string>() { "3층에", "세 번째로", "맨 마지막에", "맨 위에", "9×⅓칸에", "하늘과 가장 가까운 곳에", "바닥과 가장 먼 곳에" });
+        floorStrings.Add(new List<string>() { "3층에", "세 번째로", "맨 마지막에", "맨 위에", "9x1/3칸에", "하늘과 가장 가까운 곳에", "바닥과 가장 먼 곳에" });
 
         //색깔 - 요청 텍스트 매칭
         colorStrings = new List<List<string>>();
