@@ -110,6 +110,8 @@ public class MainScene : BaseScene
     //유저가 재료 완성했을 때(재료 추가할 때) 불림
     public void AddUserChosenMaterial(stMaterial material)
     {
+        Debug.Log(material.matColor.ToString());
+        Debug.Log(material.matType.ToString());
         isQuestSuccess &= questList[currentQuestIdx].CheckRightMaterial(material, userWorkingFloor);
         chosenMaterials[userWorkingFloor].InitMaterial(material, userWorkingFloor);
         userWorkingFloor++;
