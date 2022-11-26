@@ -130,17 +130,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5802345242999146437, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3233088cecb45c54aa8fb91838caf0b0, type: 3}
+    - target: {fileID: 5802345242999146437, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5946036159497636516, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5946036159497636516, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5946036159497636516, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5946036159497636516, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 50
+      value: 68.12
       objectReference: {fileID: 0}
     - target: {fileID: 5946036159497636516, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.47
+      value: 6.8100004
       objectReference: {fileID: 0}
     - target: {fileID: 5946036159497636516, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -259,17 +275,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5802345242999146437, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e9a3cb427946dcf4e96a2edf9874b50c, type: 3}
+    - target: {fileID: 5802345242999146437, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5946036159497636516, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5946036159497636516, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5946036159497636516, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5946036159497636516, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 50
+      value: 68.12
       objectReference: {fileID: 0}
     - target: {fileID: 5946036159497636516, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.47
+      value: 7.61
       objectReference: {fileID: 0}
     - target: {fileID: 5946036159497636516, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -331,7 +363,7 @@ GameObject:
   - component: {fileID: 1432452543}
   - component: {fileID: 1432452542}
   m_Layer: 0
-  m_Name: Background
+  m_Name: Ingame2 Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -775,11 +807,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5946036159497636516, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 52.58
+      value: 68.12
       objectReference: {fileID: 0}
     - target: {fileID: 5946036159497636516, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.09
+      value: 6.01
       objectReference: {fileID: 0}
     - target: {fileID: 5946036159497636516, guid: dffa1bfb1d9235d4c938ed71db6c83cb, type: 3}
       propertyPath: m_LocalPosition.z

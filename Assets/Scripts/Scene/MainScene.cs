@@ -59,16 +59,19 @@ public class MainScene : BaseScene
     {
         Debug.Log(BeaverGameManager.Instance.GetCurrScene<MainScene>());
         currentStage++;
-
-        currentQuestIdx = -1;
-        isUserPlaying = true;
-        stageTimer = 210.0f - currentStage * 30.0f;
-        for (int i = 0; i < 5; i++)
+        if (currentStage == 5)
         {
-            questList.Add(new stQuest(3));
+            ShowEnding();
         }
-        FadeInOut();
-        BeaverEnter();
+        else
+        {
+            currentQuestIdx = -1;
+            isUserPlaying = true;
+            stageTimer = 210.0f - currentStage * 30.0f;
+            for (int i = 0; i < 5; i++)
+                questList.Add(new stQuest(3));
+            BeaverEnter();
+        }
     }
 
     void Update()
@@ -170,8 +173,10 @@ public class MainScene : BaseScene
         }
     }
 
-    void FadeInOut()
+    void ShowEnding()
     {
-
+        if (failCnt == 0) Camera.main.transform.position = new Vector3(100, 0, -10);
+        else if (failCnt <= 4) Camera.main.transform.position = new Vector3(200, 0, -10);
+        else Camera.main.transform.position = new Vector3(200, 0, -10);
     }
 }
