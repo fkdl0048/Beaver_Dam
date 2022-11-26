@@ -142,7 +142,7 @@ public class MainScene : BaseScene
         beaverAnim.Play();
 
         Camera.main.transform.position = new Vector3(0, 0, -10);
-        if (currentQuestIdx == 5) EndStage();
+        if (currentQuestIdx == 4) EndStage();
     }
 
     //스테이지 종료
