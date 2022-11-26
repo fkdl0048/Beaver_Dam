@@ -11,7 +11,7 @@ public class MainScene : BaseScene
 
     List<stQuest> questList = new List<stQuest>(); //비버들이 요청할 내용들
 
-    int currentStage;       //현재 몇번째 스테이지인가
+    public int currentStage;       //현재 몇번째 스테이지인가
     public int failCnt;     //모든 스테이지 통틀어서 실패 횟수 카운트
 
     public int currentQuestIdx;    //현재 스테이지에서 작업중인 퀘스트 인덱스
