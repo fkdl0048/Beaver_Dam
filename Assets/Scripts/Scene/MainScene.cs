@@ -139,7 +139,7 @@ public class MainScene : BaseScene
         beaverAnim.Play();
 
         Camera.main.transform.position = new Vector3(0, 0, -10);
-        if (currentQuestIdx == 4) EndStage();
+        if (currentQuestIdx == 4 || !isUserPlaying) EndStage();
     }
 
     //스테이지 종료
@@ -158,6 +158,7 @@ public class MainScene : BaseScene
             {
                 failCnt += 5 - currentQuestIdx;
                 EndStage();
+                BeaverLeave();
             }
         }
     }
