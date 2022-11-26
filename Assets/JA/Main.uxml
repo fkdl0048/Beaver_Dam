@@ -1,11 +1,11 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/JA/Main.uss?fileID=7433441132597879392&amp;guid=52b67c48efbda470da40cdfb89f5809d&amp;type=3#Main" />
-    <ui:VisualElement name="InGameOne" class="InGame">
+    <ui:VisualElement name="InGameOne" class="InGame" style="-unity-font-definition: url(&apos;project://database/Assets/JA/Cafe24Ssurround%20SDF.asset?fileID=11400000&amp;guid=b9d3bbe2b64534ad5a013ff4b2eb0eda&amp;type=2#Cafe24Ssurround SDF&apos;); display: flex;">
         <ui:VisualElement style="flex-grow: 1; padding-left: 100px; padding-right: 100px; padding-top: 100px; padding-bottom: 100px;">
-            <ui:Button display-tooltip-when-elided="true" name="QuestText" style="background-color: rgb(255, 255, 255); font-size: 40px;" />
+            <ui:Button display-tooltip-when-elided="true" name="QuestText" style="background-color: rgba(0, 0, 0, 0); font-size: 35px; background-image: url(&apos;project://database/Assets/JA/Panel_2.PNG?fileID=21300000&amp;guid=90025dfc0b16448a0b8a11ee42554c7b&amp;type=3#Panel_2&apos;); color: rgb(255, 255, 255); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; position: absolute; height: 550px; width: 1352px; top: 12px; left: 516px; padding-left: 200px; padding-right: 200px; white-space: normal;" />
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="InGameTwo" class="InGame InGameOut" style="width: 100%; height: 100%; flex-direction: column; flex-wrap: wrap; display: none;">
+    <ui:VisualElement name="InGameTwo" class="InGame InGameOut" style="width: 100%; height: 100%; flex-direction: column; flex-wrap: wrap; display: none; -unity-font-definition: url(&apos;project://database/Assets/JA/Cafe24Ssurround%20SDF.asset?fileID=11400000&amp;guid=b9d3bbe2b64534ad5a013ff4b2eb0eda&amp;type=2#Cafe24Ssurround SDF&apos;);">
         <ui:VisualElement name="ButtonLayerOne" style="width: 15%; height: 100%; justify-content: space-around; padding-top: 100px; padding-bottom: 100px; padding-right: 50px; padding-left: 50px; align-items: center;">
             <ui:Button display-tooltip-when-elided="true" name="BranchButton" class="QuestButton" style="background-image: url(&apos;project://database/Assets/JA/UI/BrownBranch.png?fileID=21300000&amp;guid=ff608543c3f30463a9f39c8cda7df1a0&amp;type=3#BrownBranch&apos;);" />
             <ui:Button display-tooltip-when-elided="true" name="StoneButton" class="QuestButton" style="background-image: url(&apos;project://database/Assets/JA/UI/GrayStone.png?fileID=21300000&amp;guid=074d0990831a64690ab60c06f8d9a617&amp;type=3#GrayStone&apos;);" />
@@ -30,21 +30,21 @@
         </ui:VisualElement>
         <ui:VisualElement style="justify-content: flex-end; width: 75%; height: 100%; flex-direction: column;">
             <ui:VisualElement style="width: 100%; height: 70%; flex-wrap: nowrap; flex-direction: row;" />
-            <ui:VisualElement style="width: 100%; height: 30%; background-color: rgba(255, 255, 255, 0); flex-direction: row; justify-content: space-between; padding-left: 100px; padding-right: 100px; padding-top: 50px; padding-bottom: 50px;">
-                <ui:Button text="초기화" display-tooltip-when-elided="true" name="ResetButton" />
-                <ui:Button text="제출&#10;" display-tooltip-when-elided="true" name="ResultButton" />
+            <ui:VisualElement style="width: 100%; height: 30%; background-color: rgba(255, 255, 255, 0); flex-direction: row; justify-content: space-between; padding-left: 100px; padding-right: 100px; padding-top: 50px; padding-bottom: 50px; align-items: center;">
+                <ui:Button text="초기화" display-tooltip-when-elided="true" name="ResetButton" class="R-Button" style="color: rgb(255, 255, 255);" />
+                <ui:Button text="제출" display-tooltip-when-elided="true" name="ResultButton" class="R-Button" style="-unity-text-align: middle-center; color: rgb(255, 255, 255);" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:Button text="옵션" display-tooltip-when-elided="true" name="OptionButton" style="width: 50px; height: 50px; position: absolute; top: 50px; left: 1800px;" />
+    <ui:Button text="옵션" display-tooltip-when-elided="true" name="OptionButton" style="width: 70px; height: 70px; position: absolute; top: 50px; left: 1800px; background-color: rgba(255, 255, 255, 0); background-image: url(&apos;project://database/Assets/JA/Panel_1.png?fileID=21300000&amp;guid=e163e69f406664fb9a5934f24a17c095&amp;type=3#Panel_1&apos;); color: rgb(255, 255, 255); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
     <ui:VisualElement name="Container-Option" style="position: absolute; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0); display: none;">
         <ui:Button display-tooltip-when-elided="true" name="ExitButton" class="Exit--Button">
             <ui:VisualElement name="VisualElement" style="position: absolute; width: 500px; height: 300px; top: 50px; left: 1370px; background-color: rgb(152, 152, 152); justify-content: center;">
-                <ui:Slider picking-mode="Ignore" value="42" high-value="100" />
+                <ui:Slider picking-mode="Ignore" value="0" high-value="20" name="SoundSliber" low-value="-80" />
             </ui:VisualElement>
         </ui:Button>
     </ui:VisualElement>
-    <ui:VisualElement name="InGameStage" class="Stage" style="display: flex;">
+    <ui:VisualElement name="InGameStage" class="Stage" style="display: none;">
         <ui:Label text="Stage " display-tooltip-when-elided="true" name="StageText" style="font-size: 150px; color: rgb(255, 255, 255);" />
     </ui:VisualElement>
 </ui:UXML>

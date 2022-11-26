@@ -1,11 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class TitleController : MonoBehaviour
 {
+    [SerializeField] private AudioMixer _audio;
     private UIDocument _uiDocument;
 
     private Button _startButton;
@@ -17,6 +20,8 @@ public class TitleController : MonoBehaviour
 
     private VisualElement _optionContainer;
     private VisualElement _creditContainer;
+    
+    private Slider _slider;
     
     void Start()
     {
@@ -32,7 +37,8 @@ public class TitleController : MonoBehaviour
         _exitButton = root.Q<Button>("ExitButton");
         _containerOptionExitButton = root.Q<Button>("Container_Option_ExitButton");
         _containerCreditExitButton = root.Q<Button>("Container_Credit_ExitButton");
-        
+        _slider = root.Q<Slider>("SoundSlider");
+
         // Button Event
         _startButton.clicked += PlayButtonClick;
         //_optionButton.clicked += OptionButtonClick; // RegisterCallback Modify
@@ -79,5 +85,10 @@ public class TitleController : MonoBehaviour
 #else
             Application.Quit();
 #endif
+    }
+
+    private void Update()
+    {
+        _audio.SetFloat("Master", _slider.value);
     }
 }
