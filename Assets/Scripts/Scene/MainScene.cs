@@ -11,9 +11,9 @@ public class MainScene : BaseScene
     List<stQuest> questList = new List<stQuest>(); //비버들이 요청할 내용들
 
     int currentStage;       //현재 몇번째 스테이지인가
-    int failCnt;            //모든 스테이지 통틀어서 실패 횟수 카운트
+    public int failCnt;     //모든 스테이지 통틀어서 실패 횟수 카운트
 
-    int currentQuestIdx;    //현재 스테이지에서 작업중인 퀘스트 인덱스
+    public int currentQuestIdx;    //현재 스테이지에서 작업중인 퀘스트 인덱스
     bool isUserPlaying;     //현재 스테이지가 종료되었는지 체크용
     float stageTimer;       //현재 스테이지의 타이머(0되면 다음 스테이지로 넘어감)
 
@@ -46,7 +46,7 @@ public class MainScene : BaseScene
         else return StringList.failStrings[Random.Range(0, StringList.failStrings.Count)];
     }
 
-    private void Start()
+    void Start()
     {
         StartGame();
     }
