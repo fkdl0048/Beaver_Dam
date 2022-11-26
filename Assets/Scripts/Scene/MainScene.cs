@@ -181,9 +181,10 @@ public class MainScene : BaseScene
 
     void ShowEnding()
     {
+        HideTimer();
         if (failCnt == 0) Camera.main.transform.position = new Vector3(100, 0, -10);
         else if (failCnt <= 4) Camera.main.transform.position = new Vector3(200, 0, -10);
-        else Camera.main.transform.position = new Vector3(200, 0, -10);
+        else Camera.main.transform.position = new Vector3(300, 0, -10);
 
         Invoke("InvokeReturnTitleScene", 5.0f);
     }
