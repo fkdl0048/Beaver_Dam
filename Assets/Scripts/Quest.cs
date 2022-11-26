@@ -23,6 +23,13 @@ public struct stQuest
             questText += StringList.typeStrings[curMat.matType][Random.Range(0, StringList.typeStrings[curMat.matType].Count)] + "\n";
         }
     }
+
+    public bool CheckRightMaterial(stMaterial material, int floor)
+    {
+        if (floor >= questMaterials.Count) return false;
+        if (!material.isEqual(questMaterials[floor])) return false;
+        return true;
+    }
 }
 
 //재료(재료 타입 & 색깔 통틀어서)
@@ -36,4 +43,27 @@ public struct stMaterial
         matType = Random.Range(0, StringList.typeColorTable.Count);
         matColor = StringList.typeColorTable[matType][Random.Range(0, StringList.typeColorTable[matType].Count)];
     }
+
+    public bool isEqual(stMaterial a)
+    {
+        return matType == a.matType && matColor == a.matColor;
+    }
+}
+public enum eMETARIAL
+{
+    Branch,
+    Stone,
+    Leaf,
+    End
+}
+
+public enum eCOLOR
+{
+    Green,
+    Red,
+    Yellow,
+    Gray,
+    Brown,
+    White,
+    End
 }

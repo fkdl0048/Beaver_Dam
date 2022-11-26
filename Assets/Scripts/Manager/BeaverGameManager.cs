@@ -43,6 +43,4 @@ public class BeaverGameManager : MonoBehaviour
         SceneManager.LoadScene((int)eSceneID);
     }
     #endregion
-
-    
 }
