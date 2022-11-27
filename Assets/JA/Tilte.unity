@@ -185,6 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audio: {fileID: 24100000, guid: b303112fc1e30f04591f67e366356bcd, type: 2}
+  _iconSprite: {fileID: 21300000, guid: 81160529b105946308fe8b5f2c87a9ea, type: 3}
 --- !u!1 &825786523
 GameObject:
   m_ObjectHideFlags: 0

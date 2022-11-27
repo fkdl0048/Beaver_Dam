@@ -22,7 +22,8 @@ public class TitleController : MonoBehaviour
     private VisualElement _creditContainer;
     
     private Slider _slider;
-    
+    private VisualElement _sliderIcon;
+    [SerializeField] private Sprite _iconSprite;
     void Start()
     {
         // UI Document load;
@@ -51,6 +52,12 @@ public class TitleController : MonoBehaviour
         // Container Init
         _optionContainer = root.Q<VisualElement>("Container_Option");
         _creditContainer = root.Q<VisualElement>("Container_Credit");
+        
+        // Option Icon
+        _sliderIcon = root.Q<VisualElement>("unity-dragger-border");
+
+        // _sliderIcon.style.backgroundImage = new StyleBackground(_iconSprite);
+        // _slider.style.backgroundImage =  new StyleBackground(_iconS
     }
 
     private void PlayButtonClick()
